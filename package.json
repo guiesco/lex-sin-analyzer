@@ -1,0 +1,20 @@
+{
+  "name": "lex-sin-analyzer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "nearleyc grammar.le -o grammar.js",
+    "test": "nearley-test -i 'string' csscolor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guiesco/lex-sin-analyzer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guiesco/lex-sin-analyzer/issues"
+  },
+  "homepage": "https://github.com/guiesco/lex-sin-analyzer#readme"
+}
