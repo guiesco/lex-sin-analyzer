@@ -1,2 +1,22 @@
-number -> digit "." digit | digit
+input 
+    -> digit
+    | boolean
+    | array
+
+string -> "\"" characters "\""
+
+characters -> character:+
+
+character -> [^\"]
+
+boolean
+    -> "true"
+    | "false"
+
+number 
+    -> digit 
+    | digit "." digit
+
+digits -> digit:+
+
 digit -> [0-9]
