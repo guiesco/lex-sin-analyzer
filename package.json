@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/guiesco/lex-sin-analyzer/issues"
   },
-  "homepage": "https://github.com/guiesco/lex-sin-analyzer#readme"
+  "homepage": "https://github.com/guiesco/lex-sin-analyzer#readme",
+  "dependencies": {
+    "nearley": "^2.20.1"
+  }
 }
