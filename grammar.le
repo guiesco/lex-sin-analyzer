@@ -1,22 +1,52 @@
-input 
-    -> digit
-    | boolean
-    | array
+input -> value {% id %}
+
+value 
+    -> number {% id %}
+    | boolean {% id %}
+    | string {% id %}
+    | array {% id %}
+    | cNull {% id %}
+
+array 
+    -> "[" array_items "]"
+        {% (data) => data[1] %}
+    | "[" "]"
+        {% () => [] %}
+
+array_items
+    -> value 
+        {% (data) => [data[0]] %}
+    | value "," array_items
+        {% (data) => [data[0], ...data[2]] %}
 
 string -> "\"" characters "\""
+    {% (data) => data[1] %}
 
-characters -> character:+
+characters 
+    -> character {% id %}
+    | character characters
+        {% (data) => data.join("") %}
 
-character -> [^\"]
+character -> [^\"] {% id %}
+
+cNull -> "null"
+    {% () => null %}
 
 boolean
-    -> "true"
+    -> "true" 
+        {% () => true %}
     | "false"
+        {% () => false %}
 
 number 
-    -> digit 
-    | digit "." digit
+    -> digits 
+        {% (data) => Number(data) %}
+    | digits "." digits
+        {% (data) => Number(data.join("")) %}
 
-digits -> digit:+
+digits 
+    -> digit {% id %}
+    | digit digits
+        {% (data) => data.join("") %}
 
-digit -> [0-9]
+digit -> [0-9] {% id %}
