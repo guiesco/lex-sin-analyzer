@@ -1,13 +1,17 @@
 const nearley = require("nearley");
 const grammar = require("./grammar.js");
+const fs = require("mz/fs");
 
-const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar))
-
-try{
-    parser.feed("2")
-    console.log("parse success", parser.results)
-} catch (e) {
-    console.log("parse error", e.message)
+async function main() {
+    const input = (await fs.readFile("input.txt")).toString();
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar))
+    try {
+        parser.feed(input)
+        console.log(parser.results[0])
+    } catch (e) {
+        console.log("parse error", e.message)
+    }
 }
 
-console.log(JSON.stringify(parser.results))
+main()
+    .catch(err => console.log(err.stack))
