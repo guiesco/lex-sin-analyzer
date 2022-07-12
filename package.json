@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/guiesco/lex-sin-analyzer#readme",
   "dependencies": {
+    "mz": "^2.7.0",
     "nearley": "^2.20.1"
   }
 }
