@@ -9,8 +9,18 @@ value
     | array {% id %}
     | cNull {% id %}
 
-identifier -> letter:+ digits:*
-        {% (data) => data[0].join("") + data[1].join("") %}
+identifier -> nonDigit idtail
+    {% (data) => data.join("") %}
+
+idtail 
+    -> nonDigit idtail
+        {% (data) => data.join("") %}
+    | digit idtail
+        {% (data) => data.join("") %}
+    | digit
+    {% id %}
+    | nonDigit
+    {% id %}
 
 array 
     -> "[" _ array_items _ "]"
@@ -93,6 +103,6 @@ digits
 
 digit -> [0-9] {% id %}
 
-letter -> [a-zA-Z] {% id %}
+nonDigit -> [a-zA-Z_] {% id %}
 
 _ -> [ \t]:*
