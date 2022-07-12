@@ -1,4 +1,6 @@
-input -> value {% id %}
+input -> _ value _ 
+    {% (data) => data[1] %}
+    | identifier {% id %}
 
 value 
     -> number {% id %}
@@ -7,17 +9,20 @@ value
     | array {% id %}
     | cNull {% id %}
 
+identifier -> letter:+ digits:*
+        {% (data) => data[0].join("") + data[1].join("") %}
+
 array 
-    -> "[" array_items "]"
-        {% (data) => data[1] %}
-    | "[" "]"
+    -> "[" _ array_items _ "]"
+        {% (data) => data[2] %}
+    | "[" _ "]"
         {% () => [] %}
 
 array_items
     -> value 
         {% (data) => [data[0]] %}
-    | value "," array_items
-        {% (data) => [data[0], ...data[2]] %}
+    | value _ "," _ array_items
+        {% (data) => [data[0], ...data[4]] %}
 
 string -> "\"" characters "\""
     {% (data) => data[1] %}
@@ -25,9 +30,46 @@ string -> "\"" characters "\""
 characters 
     -> character {% id %}
     | character characters
-        {% (data) => data.join("") %}
+        {% (data) => data[0] + data[1] %}
 
-character -> [^\"] {% id %}
+character 
+    -> [^\"\\] {% id %}
+    | "\\" escape
+        {% (data) => data[1] %}
+
+escape
+    -> "\"" {% () => '"' %}
+    | "\\" {% () => "\\" %}
+    | "/" {% () => "/" %}
+    | "b" {% () => "\b" %}  
+    | "f" {% () => "\f" %}
+    | "n" {% () => "\n" %}
+    | "r" {% () => "\r" %}
+    | "t" {% () => "\t" %}
+    | "u" hex hex hex hex
+        {% (data) => {
+                const code = (((((data[1]*16) + data[2])*16) + data[3])*16 + data[4])
+                return String.fromCharCode(code)
+            } 
+        %}
+
+hex
+    -> digit 
+        {% (data) =>  Number(data[0]) %}
+    | [a-fA-F] 
+        {% 
+            (data) =>  {
+                switch (data[0].toLowerCase()) {
+                    case 'a': return 10;
+                    case 'b': return 11;
+                    case 'c': return 12;
+                    case 'd': return 13;
+                    case 'e': return 14;
+                    case 'f': return 15;
+                    default: return data[0];
+                }
+            }
+        %}
 
 cNull -> "null"
     {% () => null %}
@@ -50,3 +92,7 @@ digits
         {% (data) => data.join("") %}
 
 digit -> [0-9] {% id %}
+
+letter -> [a-zA-Z] {% id %}
+
+_ -> [ \t]:*
