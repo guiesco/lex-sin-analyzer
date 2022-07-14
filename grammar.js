@@ -2,6 +2,13 @@
 // http://github.com/Hardmath123/nearley
 (function () {
 function id(x) { return x[0]; }
+
+
+const nm = require('nearley-moo')
+const tokens = require('./tokens.js')
+
+nm(tokens)
+
 var grammar = {
     Lexer: undefined,
     ParserRules: [
@@ -55,10 +62,7 @@ var grammar = {
                 },
     {"name": "cNull$string$1", "symbols": [{"literal":"n"}, {"literal":"u"}, {"literal":"l"}, {"literal":"l"}], "postprocess": function joiner(d) {return d.join('');}},
     {"name": "cNull", "symbols": ["cNull$string$1"], "postprocess": () => null},
-    {"name": "boolean$string$1", "symbols": [{"literal":"t"}, {"literal":"r"}, {"literal":"u"}, {"literal":"e"}], "postprocess": function joiner(d) {return d.join('');}},
-    {"name": "boolean", "symbols": ["boolean$string$1"], "postprocess": () => true},
-    {"name": "boolean$string$2", "symbols": [{"literal":"f"}, {"literal":"a"}, {"literal":"l"}, {"literal":"s"}, {"literal":"e"}], "postprocess": function joiner(d) {return d.join('');}},
-    {"name": "boolean", "symbols": ["boolean$string$2"], "postprocess": () => false},
+    {"name": "boolean", "symbols": [boolean], "postprocess": id},
     {"name": "number", "symbols": ["digits"], "postprocess": (data) => Number(data)},
     {"name": "number", "symbols": ["digits", {"literal":"."}, "digits"], "postprocess": (data) => Number(data.join(""))},
     {"name": "digits", "symbols": ["digit"], "postprocess": id},

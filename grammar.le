@@ -1,5 +1,15 @@
-input -> _ value _ 
-    {% (data) => data[1] %}
+@{%
+
+const nm = require('nearley-moo')
+const tokens = require('./tokens.js')
+
+nm(tokens)
+
+%}
+
+input 
+    -> _ value _ 
+        {% (data) => data[1] %}
     | identifier {% id %}
 
 value 
@@ -18,9 +28,9 @@ idtail
     | digit idtail
         {% (data) => data.join("") %}
     | digit
-    {% id %}
+        {% id %}
     | nonDigit
-    {% id %}
+        {% id %}
 
 array 
     -> "[" _ array_items _ "]"
@@ -85,9 +95,9 @@ cNull -> "null"
     {% () => null %}
 
 boolean
-    -> "true" 
+    -> %boolean_true
         {% () => true %}
-    | "false"
+    | %boolean_false
         {% () => false %}
 
 number 
