@@ -19,18 +19,7 @@ value
     | array {% id %}
     | cNull {% id %}
 
-identifier -> nonDigit idtail
-    {% (data) => data.join("") %}
-
-idtail 
-    -> nonDigit idtail
-        {% (data) => data.join("") %}
-    | digit idtail
-        {% (data) => data.join("") %}
-    | digit
-        {% id %}
-    | nonDigit
-        {% id %}
+identifier -> %identifier {% id %}
 
 array 
     -> "[" _ array_items _ "]"
@@ -91,7 +80,7 @@ hex
             }
         %}
 
-cNull -> "null"
+cNull -> %cNull
     {% () => null %}
 
 boolean
@@ -101,18 +90,8 @@ boolean
         {% () => false %}
 
 number 
-    -> digits 
-        {% (data) => Number(data) %}
-    | digits "." digits
-        {% (data) => Number(data.join("")) %}
-
-digits 
-    -> digit {% id %}
-    | digit digits
-        {% (data) => data.join("") %}
-
-digit -> [0-9] {% id %}
+    -> %number {% id %}
 
 nonDigit -> [a-zA-Z_] {% id %}
 
-_ -> [ \t]:*
+_ -> %whitespace {% id %}
