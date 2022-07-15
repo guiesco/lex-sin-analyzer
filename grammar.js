@@ -9,6 +9,7 @@ var grammar = {
     ParserRules: [
     {"name": "input", "symbols": ["_", "value", "_"], "postprocess": (data) => data[1]},
     {"name": "input", "symbols": ["identifier"], "postprocess": id},
+    {"name": "input", "symbols": ["keyword"], "postprocess": id},
     {"name": "keyword", "symbols": [(tokens.has("keyword") ? {type: "keyword"} : keyword)], "postprocess": id},
     {"name": "value", "symbols": ["number"], "postprocess": id},
     {"name": "value", "symbols": ["boolean"], "postprocess": id},

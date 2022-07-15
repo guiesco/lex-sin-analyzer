@@ -8,6 +8,7 @@ input
     -> _ value _ 
         {% (data) => data[1] %}
     | identifier {% id %}
+    | keyword {% id %}
 
 keyword -> %keyword {% id %}
 
