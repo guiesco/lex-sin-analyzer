@@ -2,7 +2,7 @@
 const moo = require("moo")
 
 const mooLex = moo.compile({
-    whitespace: /[ \t]+/,
+    whitespace: /[ \t]/,
     boolean: ['true', 'false'],
     keyword: ['if', 'then', 'else'],
     identifier: /[a-zA-Z_][a-zA-Z0-9_]*/,

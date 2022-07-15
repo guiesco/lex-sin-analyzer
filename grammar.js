@@ -3,9 +3,7 @@
 (function () {
 function id(x) { return x[0]; }
 
-
 const tokens = require('./tokens.js')
-
 var grammar = {
     Lexer: tokens,
     ParserRules: [
@@ -13,7 +11,7 @@ var grammar = {
     {"name": "input", "symbols": ["identifier"], "postprocess": id},
     {"name": "value", "symbols": ["number"], "postprocess": id},
     {"name": "value", "symbols": ["boolean"], "postprocess": id},
-    {"name": "value", "symbols": ["string"], "postprocess": id},
+    {"name": "value", "symbols": [(tokens.has("string") ? {type: "string"} : string)], "postprocess": id},
     {"name": "value", "symbols": ["array"], "postprocess": id},
     {"name": "value", "symbols": ["cNull"], "postprocess": id},
     {"name": "identifier", "symbols": [(tokens.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
@@ -58,7 +56,9 @@ var grammar = {
     {"name": "boolean", "symbols": [(tokens.has("boolean_false") ? {type: "boolean_false"} : boolean_false)], "postprocess": () => false},
     {"name": "number", "symbols": [(tokens.has("number") ? {type: "number"} : number)], "postprocess": id},
     {"name": "nonDigit", "symbols": [/[a-zA-Z_]/], "postprocess": id},
-    {"name": "_", "symbols": [(tokens.has("whitespace") ? {type: "whitespace"} : whitespace)], "postprocess": id}
+    {"name": "_$ebnf$1", "symbols": []},
+    {"name": "_$ebnf$1", "symbols": ["_$ebnf$1", (tokens.has("whitespace") ? {type: "whitespace"} : whitespace)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "_", "symbols": ["_$ebnf$1"], "postprocess": id}
 ]
   , ParserStart: "input"
 }

@@ -12,7 +12,7 @@ input
 value 
     -> number {% id %}
     | boolean {% id %}
-    | string {% id %}
+    | %string {% id %}
     | array {% id %}
     | cNull {% id %}
 
@@ -91,4 +91,4 @@ number
 
 nonDigit -> [a-zA-Z_] {% id %}
 
-_ -> %whitespace {% id %}
+_ -> %whitespace:* {% id %}
