@@ -9,6 +9,8 @@ input
         {% (data) => data[1] %}
     | identifier {% id %}
 
+keyword -> %keyword {% id %}
+
 value 
     -> number {% id %}
     | boolean {% id %}
