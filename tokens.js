@@ -5,6 +5,8 @@ const mooLex = moo.compile({
     whitespace: /[ \t]/,
     boolean: ['true', 'false'],
     keyword: ['if', 'then', 'else'],
+    type_keyword: ['int', 'bool', 'char', 'float', 'double'],
+    type_modifier: ['short', 'long', 'signed', 'unsigned'],
     identifier: /[a-zA-Z_][a-zA-Z0-9_]*/,
     number: /(?:(?:[+-])?[0-9]*[.])?[0-9]+/,
     string: /"(?:[^"\\]|\\.)*"/,

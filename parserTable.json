@@ -27,6 +27,68 @@
     },
     {
      "id": 4,
+     "name": "input",
+     "symbols": [
+      "declaration"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "declaration$ebnf$1",
+     "symbols": [
+      {
+       "type": "type_modifier"
+      }
+     ]
+    },
+    {
+     "id": 6,
+     "name": "declaration$ebnf$1",
+     "symbols": []
+    },
+    {
+     "id": 7,
+     "name": "declaration",
+     "symbols": [
+      "declaration$ebnf$1",
+      "_",
+      {
+       "type": "type_keyword"
+      },
+      "_",
+      "identifier",
+      "_"
+     ]
+    },
+    {
+     "id": 8,
+     "name": "declaration$ebnf$2",
+     "symbols": [
+      {
+       "type": "type_modifier"
+      }
+     ]
+    },
+    {
+     "id": 9,
+     "name": "declaration$ebnf$2",
+     "symbols": []
+    },
+    {
+     "id": 10,
+     "name": "declaration",
+     "symbols": [
+      "declaration$ebnf$2",
+      "_",
+      {
+       "type": "type_keyword"
+      },
+      "_",
+      "attribution"
+     ]
+    },
+    {
+     "id": 11,
      "name": "attribution",
      "symbols": [
       "identifier",
@@ -39,21 +101,21 @@
      ]
     },
     {
-     "id": 5,
+     "id": 12,
      "name": "value",
      "symbols": [
       "number"
      ]
     },
     {
-     "id": 6,
+     "id": 13,
      "name": "value",
      "symbols": [
       "boolean"
      ]
     },
     {
-     "id": 7,
+     "id": 14,
      "name": "value",
      "symbols": [
       {
@@ -62,21 +124,21 @@
      ]
     },
     {
-     "id": 8,
+     "id": 15,
      "name": "value",
      "symbols": [
       "array"
      ]
     },
     {
-     "id": 9,
+     "id": 16,
      "name": "value",
      "symbols": [
       "cNull"
      ]
     },
     {
-     "id": 10,
+     "id": 17,
      "name": "identifier",
      "symbols": [
       {
@@ -85,7 +147,7 @@
      ]
     },
     {
-     "id": 11,
+     "id": 18,
      "name": "array",
      "symbols": [
       {
@@ -100,7 +162,7 @@
      ]
     },
     {
-     "id": 12,
+     "id": 19,
      "name": "array",
      "symbols": [
       {
@@ -113,14 +175,14 @@
      ]
     },
     {
-     "id": 13,
+     "id": 20,
      "name": "array_items",
      "symbols": [
       "value"
      ]
     },
     {
-     "id": 14,
+     "id": 21,
      "name": "array_items",
      "symbols": [
       "value",
@@ -133,7 +195,7 @@
      ]
     },
     {
-     "id": 15,
+     "id": 22,
      "name": "string",
      "symbols": [
       {
@@ -146,14 +208,14 @@
      ]
     },
     {
-     "id": 16,
+     "id": 23,
      "name": "characters",
      "symbols": [
       "character"
      ]
     },
     {
-     "id": 17,
+     "id": 24,
      "name": "characters",
      "symbols": [
       "character",
@@ -161,14 +223,14 @@
      ]
     },
     {
-     "id": 18,
+     "id": 25,
      "name": "character",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 19,
+     "id": 26,
      "name": "character",
      "symbols": [
       {
@@ -178,7 +240,7 @@
      ]
     },
     {
-     "id": 20,
+     "id": 27,
      "name": "escape",
      "symbols": [
       {
@@ -187,7 +249,7 @@
      ]
     },
     {
-     "id": 21,
+     "id": 28,
      "name": "escape",
      "symbols": [
       {
@@ -196,7 +258,7 @@
      ]
     },
     {
-     "id": 22,
+     "id": 29,
      "name": "escape",
      "symbols": [
       {
@@ -205,7 +267,7 @@
      ]
     },
     {
-     "id": 23,
+     "id": 30,
      "name": "escape",
      "symbols": [
       {
@@ -214,7 +276,7 @@
      ]
     },
     {
-     "id": 24,
+     "id": 31,
      "name": "escape",
      "symbols": [
       {
@@ -223,7 +285,7 @@
      ]
     },
     {
-     "id": 25,
+     "id": 32,
      "name": "escape",
      "symbols": [
       {
@@ -232,7 +294,7 @@
      ]
     },
     {
-     "id": 26,
+     "id": 33,
      "name": "escape",
      "symbols": [
       {
@@ -241,7 +303,7 @@
      ]
     },
     {
-     "id": 27,
+     "id": 34,
      "name": "escape",
      "symbols": [
       {
@@ -250,7 +312,7 @@
      ]
     },
     {
-     "id": 28,
+     "id": 35,
      "name": "escape",
      "symbols": [
       {
@@ -263,7 +325,7 @@
      ]
     },
     {
-     "id": 29,
+     "id": 36,
      "name": "hex",
      "symbols": [
       {
@@ -272,14 +334,14 @@
      ]
     },
     {
-     "id": 30,
+     "id": 37,
      "name": "hex",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 31,
+     "id": 38,
      "name": "cNull",
      "symbols": [
       {
@@ -288,7 +350,7 @@
      ]
     },
     {
-     "id": 32,
+     "id": 39,
      "name": "boolean",
      "symbols": [
       {
@@ -297,7 +359,7 @@
      ]
     },
     {
-     "id": 33,
+     "id": 40,
      "name": "boolean",
      "symbols": [
       {
@@ -306,7 +368,7 @@
      ]
     },
     {
-     "id": 34,
+     "id": 41,
      "name": "number",
      "symbols": [
       {
@@ -315,19 +377,19 @@
      ]
     },
     {
-     "id": 35,
+     "id": 42,
      "name": "nonDigit",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 36,
+     "id": 43,
      "name": "_$ebnf$1",
      "symbols": []
     },
     {
-     "id": 37,
+     "id": 44,
      "name": "_$ebnf$1",
      "symbols": [
       "_$ebnf$1",
@@ -337,7 +399,7 @@
      ]
     },
     {
-     "id": 38,
+     "id": 45,
      "name": "_",
      "symbols": [
       "_$ebnf$1"
@@ -348,6 +410,19 @@
    "byName": {
     "input": [
      null,
+     null,
+     null,
+     null
+    ],
+    "declaration$ebnf$1": [
+     null,
+     null
+    ],
+    "declaration": [
+     null,
+     null
+    ],
+    "declaration$ebnf$2": [
      null,
      null
     ],
@@ -471,6 +546,43 @@
          "then",
          "else",
          "if"
+        ]
+       },
+       {
+        "defaultType": "type_keyword",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         "double",
+         "float",
+         "bool",
+         "char",
+         "int"
+        ]
+       },
+       {
+        "defaultType": "type_modifier",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         "unsigned",
+         "signed",
+         "short",
+         "long"
         ]
        },
        {
@@ -625,11 +737,11 @@
       }
      }
     },
-    "buffer": "asd = 1231",
+    "buffer": "int asd = 1231",
     "stack": [],
-    "index": 10,
+    "index": 14,
     "line": 1,
-    "col": 11,
+    "col": 15,
     "queuedToken": null,
     "queuedThrow": null,
     "state": "start"
@@ -660,8 +772,59 @@
     "dot": 0,
     "reference": 0,
     "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
     "wantedBy": [
-     null
+     null,
+     {
+      "dot": 1,
+      "reference": 0,
+      "data": [],
+      "wantedBy": [
+       null
+      ],
+      "isComplete": false,
+      "left": {
+       "dot": 0,
+       "reference": 0,
+       "data": [],
+       "isComplete": false
+      },
+      "right": {
+       "dot": 0,
+       "reference": 0,
+       "data": null,
+       "wantedBy": [
+        null
+       ],
+       "isComplete": true
+      }
+     },
+     {
+      "dot": 1,
+      "reference": 0,
+      "data": [],
+      "isComplete": false,
+      "left": {
+       "dot": 0,
+       "reference": 0,
+       "data": [],
+       "isComplete": false
+      },
+      "right": {
+       "dot": 0,
+       "reference": 0,
+       "data": null,
+       "wantedBy": [
+        null
+       ],
+       "isComplete": true
+      }
+     }
     ],
     "isComplete": false
    },
@@ -684,6 +847,8 @@
     "isComplete": false
    },
    null,
+   null,
+   null,
    {
     "dot": 0,
     "reference": 0,
@@ -701,6 +866,20 @@
    },
    null,
    {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   null,
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   null,
+   {
     "dot": 1,
     "reference": 0,
     "isComplete": true
@@ -711,8 +890,22 @@
     "data": [],
     "isComplete": false
    },
+   null,
+   null,
    {
     "dot": 1,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
     "reference": 0,
     "data": [],
     "isComplete": false
@@ -809,10 +1002,20 @@
    null,
    null,
    null,
+   null,
+   null,
+   null,
+   null,
    null
   ],
   "completed": {
    "_$ebnf$1": [
+    null
+   ],
+   "declaration$ebnf$1": [
+    null
+   ],
+   "declaration$ebnf$2": [
     null
    ],
    "_": [
@@ -832,35 +1035,40 @@
   "index": 1,
   "states": [
    {
-    "dot": 1,
-    "reference": 0,
-    "data": {
-     "type": "identifier",
-     "value": "asd",
-     "text": "asd",
-     "offset": 0,
-     "lineBreaks": 0,
-     "line": 1,
-     "col": 1
-    },
-    "isComplete": true
-   },
-   {
-    "dot": 1,
+    "dot": 3,
     "reference": 0,
     "data": [],
-    "isComplete": false
+    "isComplete": false,
+    "right": {
+     "data": {
+      "type": "type_keyword",
+      "value": "int",
+      "text": "int",
+      "offset": 0,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 1
+     },
+     "isToken": true,
+     "reference": 0
+    }
    },
    {
-    "dot": 1,
+    "dot": 3,
     "reference": 0,
-    "isComplete": true
+    "data": [],
+    "isComplete": false,
+    "right": {
+     "isToken": true,
+     "reference": 0
+    }
    },
    {
     "dot": 0,
     "reference": 1,
     "data": [],
     "wantedBy": [
+     null,
      null
     ],
     "isComplete": false
@@ -893,11 +1101,36 @@
     "isComplete": false
    },
    {
-    "dot": 2,
+    "dot": 4,
     "reference": 0,
     "data": [],
     "isComplete": false
-   }
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 1,
+      "data": [],
+      "wantedBy": [
+       null
+      ],
+      "isComplete": false
+     }
+    ],
+    "isComplete": false
+   },
+   null
   ],
   "wants": {},
   "scannable": [
@@ -952,11 +1185,36 @@
     "isComplete": true
    },
    {
-    "dot": 2,
+    "dot": 4,
     "reference": 0,
     "data": [],
     "isComplete": false
-   }
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 2,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 2,
+      "data": [],
+      "wantedBy": [
+       null
+      ],
+      "isComplete": false
+     }
+    ],
+    "isComplete": false
+   },
+   null
   ],
   "wants": {},
   "scannable": [
@@ -966,7 +1224,7 @@
   "completed": {},
   "lexerState": {
    "line": 1,
-   "col": 6,
+   "col": 8,
    "state": "start",
    "stack": [],
    "queuedToken": null,
@@ -977,29 +1235,37 @@
   "index": 3,
   "states": [
    {
-    "dot": 3,
+    "dot": 1,
+    "reference": 2,
+    "data": {
+     "type": "identifier",
+     "value": "asd",
+     "text": "asd",
+     "offset": 4,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 5
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 2,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 5,
     "reference": 0,
     "data": [],
-    "isComplete": false,
-    "right": {
-     "data": {
-      "type": "operator",
-      "value": "=",
-      "text": "=",
-      "offset": 4,
-      "lineBreaks": 0,
-      "line": 1,
-      "col": 5
-     },
-     "isToken": true,
-     "reference": 2
-    }
+    "isComplete": false
    },
    {
     "dot": 0,
     "reference": 3,
     "data": [],
     "wantedBy": [
+     null,
      null
     ],
     "isComplete": false
@@ -1032,14 +1298,159 @@
     "isComplete": false
    },
    {
-    "dot": 4,
+    "dot": 6,
     "reference": 0,
+    "data": {
+     "type": "declaration",
+     "data": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 2,
+    "reference": 2,
     "data": [],
     "isComplete": false
    },
    {
-    "dot": 0,
+    "dot": 1,
+    "reference": 0,
+    "data": [
+     null
+    ],
+    "isComplete": true
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 9,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 4,
+  "states": [
+   {
+    "dot": 2,
     "reference": 3,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 7,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 8
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 3,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 3,
+    "isComplete": true
+   },
+   {
+    "dot": 6,
+    "reference": 0,
+    "data": {
+     "type": "declaration",
+     "data": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 2,
+    "reference": 2,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "data": [
+     null
+    ],
+    "isComplete": true
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 10,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 5,
+  "states": [
+   {
+    "dot": 3,
+    "reference": 2,
+    "data": [],
+    "isComplete": false,
+    "right": {
+     "data": {
+      "type": "operator",
+      "value": "=",
+      "text": "=",
+      "offset": 8,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 9
+     },
+     "isToken": true,
+     "reference": 4
+    }
+   },
+   {
+    "dot": 0,
+    "reference": 5,
     "data": [],
     "wantedBy": [
      null
@@ -1048,31 +1459,40 @@
    },
    {
     "dot": 0,
-    "reference": 3,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 5,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 5,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 2,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 0,
-    "reference": 3,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 3,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 3,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 3,
+    "reference": 5,
     "data": [],
     "wantedBy": [
      null
@@ -1081,7 +1501,31 @@
    },
    {
     "dot": 0,
-    "reference": 3,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
     "data": [],
     "wantedBy": [
      null
@@ -1090,13 +1534,7 @@
    },
    {
     "dot": 0,
-    "reference": 3,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 3,
+    "reference": 5,
     "data": [],
     "wantedBy": [
      null
@@ -1105,13 +1543,28 @@
    },
    {
     "dot": 0,
-    "reference": 3,
+    "reference": 5,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 0,
-    "reference": 3,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
     "data": [],
     "wantedBy": [
      null
@@ -1140,7 +1593,7 @@
   },
   "lexerState": {
    "line": 1,
-   "col": 7,
+   "col": 11,
    "state": "start",
    "stack": [],
    "queuedToken": null,
@@ -1148,77 +1601,44 @@
   }
  },
  {
-  "index": 4,
+  "index": 6,
   "states": [
    {
     "dot": 2,
-    "reference": 3,
+    "reference": 5,
     "data": [
      {
       "type": "whitespace",
       "value": " ",
       "text": " ",
-      "offset": 5,
+      "offset": 9,
       "lineBreaks": 0,
       "line": 1,
-      "col": 6
+      "col": 10
      }
     ],
     "isComplete": true
    },
    {
     "dot": 1,
-    "reference": 3,
+    "reference": 5,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 1,
-    "reference": 3,
+    "reference": 5,
     "isComplete": true
    },
    {
     "dot": 4,
-    "reference": 0,
+    "reference": 2,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 0,
-    "reference": 4,
-    "data": [],
-    "wantedBy": [
-     null
-    ],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 4,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 4,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 4,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 4,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 4,
+    "reference": 6,
     "data": [],
     "wantedBy": [
      null
@@ -1227,7 +1647,31 @@
    },
    {
     "dot": 0,
-    "reference": 4,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
     "data": [],
     "wantedBy": [
      null
@@ -1236,13 +1680,7 @@
    },
    {
     "dot": 0,
-    "reference": 4,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 4,
+    "reference": 6,
     "data": [],
     "wantedBy": [
      null
@@ -1251,13 +1689,28 @@
    },
    {
     "dot": 0,
-    "reference": 4,
+    "reference": 6,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 0,
-    "reference": 4,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
     "data": [],
     "wantedBy": [
      null
@@ -1279,7 +1732,7 @@
   "completed": {},
   "lexerState": {
    "line": 1,
-   "col": 11,
+   "col": 15,
    "state": "start",
    "stack": [],
    "queuedToken": null,
@@ -1287,32 +1740,47 @@
   }
  },
  {
-  "index": 5,
+  "index": 7,
   "states": [
    {
     "dot": 1,
-    "reference": 4,
+    "reference": 6,
     "data": {
      "type": "number",
      "value": "1231",
      "text": "1231",
-     "offset": 6,
+     "offset": 10,
      "lineBreaks": 0,
      "line": 1,
-     "col": 7
+     "col": 11
     },
     "isComplete": true
    },
    {
     "dot": 1,
-    "reference": 4,
+    "reference": 6,
+    "isComplete": true
+   },
+   {
+    "dot": 5,
+    "reference": 2,
+    "data": {
+     "type": "attribution",
+     "data": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
     "isComplete": true
    },
    {
     "dot": 5,
     "reference": 0,
     "data": {
-     "type": "attribution",
+     "type": "declaration",
      "data": [
       null,
       null,
