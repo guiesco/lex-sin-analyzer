@@ -12,12 +12,29 @@ async function main() {
     )
     try {
         parser.feed(input)
-        console.log(parser.results[0])
-        console.log(parser.table)
+
+        const parserResults = parser.results[0]
+        const table = parser.table
+
+        await fs.writeFile("result.json", JSON.stringify(parserResults, null, " "))
+        await fs.writeFile("parserTable.json", JSON.stringify(table, getCircularReplacer(), " "))
     } catch (e) {
         console.log("parse error", e.message)
     }
 }
+
+const getCircularReplacer = () => {
+    const seen = new WeakSet();
+    return (key, value) => {
+        if (typeof value === 'object' && value !== null) {
+            if (seen.has(value)) {
+                return;
+            }
+            seen.add(value);
+        }
+        return value;
+    };
+};
 
 main()
     .catch(err => console.log(err.stack))
