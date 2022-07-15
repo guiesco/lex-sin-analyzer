@@ -1,1 +1,1 @@
-for
+char asd = 1231

@@ -9,7 +9,31 @@ var grammar = {
     ParserRules: [
     {"name": "input", "symbols": ["_", "value", "_"], "postprocess": (data) => data[1]},
     {"name": "input", "symbols": ["identifier"], "postprocess": id},
+    {"name": "input", "symbols": ["attribution"]},
+    {"name": "input", "symbols": ["declaration"]},
     {"name": "input", "symbols": ["keyword"], "postprocess": id},
+    {"name": "declaration$ebnf$1", "symbols": [(tokens.has("type_modifier") ? {type: "type_modifier"} : type_modifier)], "postprocess": id},
+    {"name": "declaration$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
+    {"name": "declaration", "symbols": ["declaration$ebnf$1", "_", (tokens.has("type_keyword") ? {type: "type_keyword"} : type_keyword), "_", "identifier", "_"], "postprocess":  (data) => {
+            return {
+                type: 'declaration',
+                data
+            }
+        } },
+    {"name": "declaration$ebnf$2", "symbols": [(tokens.has("type_modifier") ? {type: "type_modifier"} : type_modifier)], "postprocess": id},
+    {"name": "declaration$ebnf$2", "symbols": [], "postprocess": function(d) {return null;}},
+    {"name": "declaration", "symbols": ["declaration$ebnf$2", "_", (tokens.has("type_keyword") ? {type: "type_keyword"} : type_keyword), "_", "attribution"], "postprocess":  (data) => {
+            return {
+                type: 'declaration',
+                data
+            }
+        } },
+    {"name": "attribution", "symbols": ["identifier", "_", {"literal":"="}, "_", "value"], "postprocess":  (data) => {
+            return {
+                type: 'attribution',
+                data
+            }
+        } },
     {"name": "keyword", "symbols": [(tokens.has("keyword") ? {type: "keyword"} : keyword)], "postprocess": id},
     {"name": "value", "symbols": ["number"], "postprocess": id},
     {"name": "value", "symbols": ["boolean"], "postprocess": id},

@@ -8,7 +8,35 @@ input
     -> _ value _ 
         {% (data) => data[1] %}
     | identifier {% id %}
+    | attribution
+    | declaration
     | keyword {% id %}
+
+
+declaration 
+    -> %type_modifier:? _ %type_keyword _ identifier _
+        {% (data) => {
+            return {
+                type: 'declaration',
+                data
+            }
+        } %}
+    | %type_modifier:? _ %type_keyword _ attribution
+        {% (data) => {
+            return {
+                type: 'declaration',
+                data
+            }
+        } %}
+
+attribution
+    -> identifier _ "=" _ value
+        {% (data) => {
+            return {
+                type: 'attribution',
+                data
+            }
+        } %}
 
 keyword -> %keyword {% id %}
 

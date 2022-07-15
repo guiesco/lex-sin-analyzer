@@ -1,0 +1,1867 @@
+[
+ {
+  "grammar": {
+   "rules": [
+    {
+     "id": 1,
+     "name": "input",
+     "symbols": [
+      "_",
+      "value",
+      "_"
+     ]
+    },
+    {
+     "id": 2,
+     "name": "input",
+     "symbols": [
+      "identifier"
+     ]
+    },
+    {
+     "id": 3,
+     "name": "input",
+     "symbols": [
+      "attribution"
+     ]
+    },
+    {
+     "id": 4,
+     "name": "input",
+     "symbols": [
+      "declaration"
+     ]
+    },
+    {
+     "id": 5,
+     "name": "input",
+     "symbols": [
+      "keyword"
+     ]
+    },
+    {
+     "id": 6,
+     "name": "declaration$ebnf$1",
+     "symbols": [
+      {
+       "type": "type_modifier"
+      }
+     ]
+    },
+    {
+     "id": 7,
+     "name": "declaration$ebnf$1",
+     "symbols": []
+    },
+    {
+     "id": 8,
+     "name": "declaration",
+     "symbols": [
+      "declaration$ebnf$1",
+      "_",
+      {
+       "type": "type_keyword"
+      },
+      "_",
+      "identifier",
+      "_"
+     ]
+    },
+    {
+     "id": 9,
+     "name": "declaration$ebnf$2",
+     "symbols": [
+      {
+       "type": "type_modifier"
+      }
+     ]
+    },
+    {
+     "id": 10,
+     "name": "declaration$ebnf$2",
+     "symbols": []
+    },
+    {
+     "id": 11,
+     "name": "declaration",
+     "symbols": [
+      "declaration$ebnf$2",
+      "_",
+      {
+       "type": "type_keyword"
+      },
+      "_",
+      "attribution"
+     ]
+    },
+    {
+     "id": 12,
+     "name": "attribution",
+     "symbols": [
+      "identifier",
+      "_",
+      {
+       "literal": "="
+      },
+      "_",
+      "value"
+     ]
+    },
+    {
+     "id": 13,
+     "name": "keyword",
+     "symbols": [
+      {
+       "type": "keyword"
+      }
+     ]
+    },
+    {
+     "id": 14,
+     "name": "value",
+     "symbols": [
+      "number"
+     ]
+    },
+    {
+     "id": 15,
+     "name": "value",
+     "symbols": [
+      "boolean"
+     ]
+    },
+    {
+     "id": 16,
+     "name": "value",
+     "symbols": [
+      {
+       "type": "string"
+      }
+     ]
+    },
+    {
+     "id": 17,
+     "name": "value",
+     "symbols": [
+      "array"
+     ]
+    },
+    {
+     "id": 18,
+     "name": "value",
+     "symbols": [
+      "cNull"
+     ]
+    },
+    {
+     "id": 19,
+     "name": "identifier",
+     "symbols": [
+      {
+       "type": "identifier"
+      }
+     ]
+    },
+    {
+     "id": 20,
+     "name": "array",
+     "symbols": [
+      {
+       "literal": "["
+      },
+      "_",
+      "array_items",
+      "_",
+      {
+       "literal": "]"
+      }
+     ]
+    },
+    {
+     "id": 21,
+     "name": "array",
+     "symbols": [
+      {
+       "literal": "["
+      },
+      "_",
+      {
+       "literal": "]"
+      }
+     ]
+    },
+    {
+     "id": 22,
+     "name": "array_items",
+     "symbols": [
+      "value"
+     ]
+    },
+    {
+     "id": 23,
+     "name": "array_items",
+     "symbols": [
+      "value",
+      "_",
+      {
+       "literal": ","
+      },
+      "_",
+      "array_items"
+     ]
+    },
+    {
+     "id": 24,
+     "name": "string",
+     "symbols": [
+      {
+       "literal": "\""
+      },
+      "characters",
+      {
+       "literal": "\""
+      }
+     ]
+    },
+    {
+     "id": 25,
+     "name": "characters",
+     "symbols": [
+      "character"
+     ]
+    },
+    {
+     "id": 26,
+     "name": "characters",
+     "symbols": [
+      "character",
+      "characters"
+     ]
+    },
+    {
+     "id": 27,
+     "name": "character",
+     "symbols": [
+      {}
+     ]
+    },
+    {
+     "id": 28,
+     "name": "character",
+     "symbols": [
+      {
+       "literal": "\\"
+      },
+      "escape"
+     ]
+    },
+    {
+     "id": 29,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "\""
+      }
+     ]
+    },
+    {
+     "id": 30,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "\\"
+      }
+     ]
+    },
+    {
+     "id": 31,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "/"
+      }
+     ]
+    },
+    {
+     "id": 32,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "b"
+      }
+     ]
+    },
+    {
+     "id": 33,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "f"
+      }
+     ]
+    },
+    {
+     "id": 34,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "n"
+      }
+     ]
+    },
+    {
+     "id": 35,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "r"
+      }
+     ]
+    },
+    {
+     "id": 36,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "t"
+      }
+     ]
+    },
+    {
+     "id": 37,
+     "name": "escape",
+     "symbols": [
+      {
+       "literal": "u"
+      },
+      "hex",
+      "hex",
+      "hex",
+      "hex"
+     ]
+    },
+    {
+     "id": 38,
+     "name": "hex",
+     "symbols": [
+      {
+       "type": "number"
+      }
+     ]
+    },
+    {
+     "id": 39,
+     "name": "hex",
+     "symbols": [
+      {}
+     ]
+    },
+    {
+     "id": 40,
+     "name": "cNull",
+     "symbols": [
+      {
+       "type": "cNull"
+      }
+     ]
+    },
+    {
+     "id": 41,
+     "name": "boolean",
+     "symbols": [
+      {
+       "type": "boolean_true"
+      }
+     ]
+    },
+    {
+     "id": 42,
+     "name": "boolean",
+     "symbols": [
+      {
+       "type": "boolean_false"
+      }
+     ]
+    },
+    {
+     "id": 43,
+     "name": "number",
+     "symbols": [
+      {
+       "type": "number"
+      }
+     ]
+    },
+    {
+     "id": 44,
+     "name": "nonDigit",
+     "symbols": [
+      {}
+     ]
+    },
+    {
+     "id": 45,
+     "name": "_$ebnf$1",
+     "symbols": []
+    },
+    {
+     "id": 46,
+     "name": "_$ebnf$1",
+     "symbols": [
+      "_$ebnf$1",
+      {
+       "type": "whitespace"
+      }
+     ]
+    },
+    {
+     "id": 47,
+     "name": "_",
+     "symbols": [
+      "_$ebnf$1"
+     ]
+    }
+   ],
+   "start": "input",
+   "byName": {
+    "input": [
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "declaration$ebnf$1": [
+     null,
+     null
+    ],
+    "declaration": [
+     null,
+     null
+    ],
+    "declaration$ebnf$2": [
+     null,
+     null
+    ],
+    "attribution": [
+     null
+    ],
+    "keyword": [
+     null
+    ],
+    "value": [
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "identifier": [
+     null
+    ],
+    "array": [
+     null,
+     null
+    ],
+    "array_items": [
+     null,
+     null
+    ],
+    "string": [
+     null
+    ],
+    "characters": [
+     null,
+     null
+    ],
+    "character": [
+     null,
+     null
+    ],
+    "escape": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "hex": [
+     null,
+     null
+    ],
+    "cNull": [
+     null
+    ],
+    "boolean": [
+     null,
+     null
+    ],
+    "number": [
+     null
+    ],
+    "nonDigit": [
+     null
+    ],
+    "_$ebnf$1": [
+     null,
+     null
+    ],
+    "_": [
+     null
+    ]
+   },
+   "lexer": {
+    "startState": "start",
+    "states": {
+     "start": {
+      "regexp": {},
+      "groups": [
+       {
+        "defaultType": "whitespace",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         {}
+        ]
+       },
+       {
+        "defaultType": "boolean",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         "false",
+         "true"
+        ]
+       },
+       {
+        "defaultType": "keyword",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         "continue",
+         "register",
+         "volatile",
+         "default",
+         "typedef",
+         "extern",
+         "return",
+         "sizeof",
+         "static",
+         "struct",
+         "switch",
+         "break",
+         "const",
+         "union",
+         "while",
+         "then",
+         "else",
+         "auto",
+         "case",
+         "else",
+         "enum",
+         "goto",
+         "void",
+         "for",
+         "if",
+         "do",
+         "if"
+        ]
+       },
+       {
+        "defaultType": "type_keyword",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         "double",
+         "float",
+         "bool",
+         "char",
+         "int"
+        ]
+       },
+       {
+        "defaultType": "type_modifier",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         "unsigned",
+         "signed",
+         "short",
+         "long"
+        ]
+       },
+       {
+        "defaultType": "identifier",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         {}
+        ]
+       },
+       {
+        "defaultType": "number",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         {}
+        ]
+       },
+       {
+        "defaultType": "string",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         {}
+        ]
+       },
+       {
+        "defaultType": "comment",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         {}
+        ]
+       },
+       {
+        "defaultType": "punctuation",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         {}
+        ]
+       },
+       {
+        "defaultType": "operator",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         {}
+        ]
+       },
+       {
+        "defaultType": "cNull",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         "null"
+        ]
+       },
+       {
+        "defaultType": "NL",
+        "lineBreaks": true,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         {}
+        ]
+       },
+       {
+        "defaultType": "eof",
+        "lineBreaks": false,
+        "pop": false,
+        "next": null,
+        "push": null,
+        "error": false,
+        "fallback": false,
+        "value": null,
+        "type": null,
+        "shouldThrow": false,
+        "match": [
+         "eof"
+        ]
+       }
+      ],
+      "fast": {},
+      "error": {
+       "defaultType": "error",
+       "lineBreaks": true,
+       "pop": false,
+       "next": null,
+       "push": null,
+       "error": false,
+       "fallback": false,
+       "value": null,
+       "type": null,
+       "shouldThrow": true,
+       "match": []
+      }
+     }
+    },
+    "buffer": "char asd = 1231",
+    "stack": [],
+    "index": 15,
+    "line": 1,
+    "col": 16,
+    "queuedToken": null,
+    "queuedThrow": null,
+    "state": "start"
+   }
+  },
+  "index": 0,
+  "states": [
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 1,
+      "reference": 0,
+      "data": [],
+      "wantedBy": [
+       null
+      ],
+      "isComplete": false,
+      "left": {
+       "dot": 0,
+       "reference": 0,
+       "data": [],
+       "isComplete": false
+      },
+      "right": {
+       "dot": 0,
+       "reference": 0,
+       "data": null,
+       "wantedBy": [
+        null
+       ],
+       "isComplete": true
+      }
+     },
+     {
+      "dot": 1,
+      "reference": 0,
+      "data": [],
+      "isComplete": false,
+      "left": {
+       "dot": 0,
+       "reference": 0,
+       "data": [],
+       "isComplete": false
+      },
+      "right": {
+       "dot": 0,
+       "reference": 0,
+       "data": null,
+       "wantedBy": [
+        null
+       ],
+       "isComplete": true
+      }
+     }
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 0,
+      "data": [],
+      "wantedBy": [
+       null
+      ],
+      "isComplete": false
+     }
+    ],
+    "isComplete": false
+   },
+   null,
+   null,
+   null,
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 0,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   null,
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 0,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   null,
+   null,
+   {
+    "dot": 1,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "declaration$ebnf$1": [
+    null
+   ],
+   "declaration$ebnf$2": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 5,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 1,
+  "states": [
+   {
+    "dot": 3,
+    "reference": 0,
+    "data": [],
+    "isComplete": false,
+    "right": {
+     "data": {
+      "type": "type_keyword",
+      "value": "char",
+      "text": "char",
+      "offset": 0,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 1
+     },
+     "isToken": true,
+     "reference": 0
+    }
+   },
+   {
+    "dot": 3,
+    "reference": 0,
+    "data": [],
+    "isComplete": false,
+    "right": {
+     "isToken": true,
+     "reference": 0
+    }
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 1,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 1,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 1,
+      "data": [],
+      "wantedBy": [
+       null
+      ],
+      "isComplete": false
+     }
+    ],
+    "isComplete": false
+   },
+   null
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 6,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 2,
+  "states": [
+   {
+    "dot": 2,
+    "reference": 1,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 4,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 5
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 1,
+    "isComplete": true
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 2,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 2,
+      "data": [],
+      "wantedBy": [
+       null
+      ],
+      "isComplete": false
+     }
+    ],
+    "isComplete": false
+   },
+   null
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 9,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 3,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 2,
+    "data": {
+     "type": "identifier",
+     "value": "asd",
+     "text": "asd",
+     "offset": 5,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 6
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 2,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 5,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 3,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 3,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 3,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 3,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 3,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 6,
+    "reference": 0,
+    "data": {
+     "type": "declaration",
+     "data": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 2,
+    "reference": 2,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "data": [
+     null
+    ],
+    "isComplete": true
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 10,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 4,
+  "states": [
+   {
+    "dot": 2,
+    "reference": 3,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 8,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 9
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 3,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 3,
+    "isComplete": true
+   },
+   {
+    "dot": 6,
+    "reference": 0,
+    "data": {
+     "type": "declaration",
+     "data": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 2,
+    "reference": 2,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "data": [
+     null
+    ],
+    "isComplete": true
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 11,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 5,
+  "states": [
+   {
+    "dot": 3,
+    "reference": 2,
+    "data": [],
+    "isComplete": false,
+    "right": {
+     "data": {
+      "type": "operator",
+      "value": "=",
+      "text": "=",
+      "offset": 9,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 10
+     },
+     "isToken": true,
+     "reference": 4
+    }
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 5,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 5,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 2,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 12,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 6,
+  "states": [
+   {
+    "dot": 2,
+    "reference": 5,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 10,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 11
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 5,
+    "isComplete": true
+   },
+   {
+    "dot": 4,
+    "reference": 2,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 16,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 7,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 6,
+    "data": {
+     "type": "number",
+     "value": "1231",
+     "text": "1231",
+     "offset": 11,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 12
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 6,
+    "isComplete": true
+   },
+   {
+    "dot": 5,
+    "reference": 2,
+    "data": {
+     "type": "attribution",
+     "data": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 5,
+    "reference": 0,
+    "data": {
+     "type": "declaration",
+     "data": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "data": [
+     null
+    ],
+    "isComplete": true
+   }
+  ],
+  "wants": {},
+  "scannable": [],
+  "completed": {}
+ }
+]

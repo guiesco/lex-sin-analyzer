@@ -1,0 +1,83 @@
+[
+ {
+  "type": "declaration",
+  "data": [
+   null,
+   [],
+   {
+    "type": "type_keyword",
+    "value": "char",
+    "text": "char",
+    "offset": 0,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 1
+   },
+   [
+    {
+     "type": "whitespace",
+     "value": " ",
+     "text": " ",
+     "offset": 4,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 5
+    }
+   ],
+   {
+    "type": "attribution",
+    "data": [
+     {
+      "type": "identifier",
+      "value": "asd",
+      "text": "asd",
+      "offset": 5,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 6
+     },
+     [
+      {
+       "type": "whitespace",
+       "value": " ",
+       "text": " ",
+       "offset": 8,
+       "lineBreaks": 0,
+       "line": 1,
+       "col": 9
+      }
+     ],
+     {
+      "type": "operator",
+      "value": "=",
+      "text": "=",
+      "offset": 9,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 10
+     },
+     [
+      {
+       "type": "whitespace",
+       "value": " ",
+       "text": " ",
+       "offset": 10,
+       "lineBreaks": 0,
+       "line": 1,
+       "col": 11
+      }
+     ],
+     {
+      "type": "number",
+      "value": "1231",
+      "text": "1231",
+      "offset": 11,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 12
+     }
+    ]
+   }
+  ]
+ }
+]
