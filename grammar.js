@@ -4,13 +4,10 @@
 function id(x) { return x[0]; }
 
 
-const nm = require('nearley-moo')
 const tokens = require('./tokens.js')
 
-nm(tokens)
-
 var grammar = {
-    Lexer: undefined,
+    Lexer: tokens,
     ParserRules: [
     {"name": "input", "symbols": ["_", "value", "_"], "postprocess": (data) => data[1]},
     {"name": "input", "symbols": ["identifier"], "postprocess": id},
@@ -19,11 +16,7 @@ var grammar = {
     {"name": "value", "symbols": ["string"], "postprocess": id},
     {"name": "value", "symbols": ["array"], "postprocess": id},
     {"name": "value", "symbols": ["cNull"], "postprocess": id},
-    {"name": "identifier", "symbols": ["nonDigit", "idtail"], "postprocess": (data) => data.join("")},
-    {"name": "idtail", "symbols": ["nonDigit", "idtail"], "postprocess": (data) => data.join("")},
-    {"name": "idtail", "symbols": ["digit", "idtail"], "postprocess": (data) => data.join("")},
-    {"name": "idtail", "symbols": ["digit"], "postprocess": id},
-    {"name": "idtail", "symbols": ["nonDigit"], "postprocess": id},
+    {"name": "identifier", "symbols": [(tokens.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
     {"name": "array", "symbols": [{"literal":"["}, "_", "array_items", "_", {"literal":"]"}], "postprocess": (data) => data[2]},
     {"name": "array", "symbols": [{"literal":"["}, "_", {"literal":"]"}], "postprocess": () => []},
     {"name": "array_items", "symbols": ["value"], "postprocess": (data) => [data[0]]},
@@ -46,7 +39,7 @@ var grammar = {
             return String.fromCharCode(code)
         } 
                 },
-    {"name": "hex", "symbols": ["digit"], "postprocess": (data) =>  Number(data[0])},
+    {"name": "hex", "symbols": [(tokens.has("number") ? {type: "number"} : number)], "postprocess": (data) =>  Number(data[0])},
     {"name": "hex", "symbols": [/[a-fA-F]/], "postprocess":  
         (data) =>  {
             switch (data[0].toLowerCase()) {
@@ -60,18 +53,12 @@ var grammar = {
             }
         }
                 },
-    {"name": "cNull$string$1", "symbols": [{"literal":"n"}, {"literal":"u"}, {"literal":"l"}, {"literal":"l"}], "postprocess": function joiner(d) {return d.join('');}},
-    {"name": "cNull", "symbols": ["cNull$string$1"], "postprocess": () => null},
-    {"name": "boolean", "symbols": [boolean], "postprocess": id},
-    {"name": "number", "symbols": ["digits"], "postprocess": (data) => Number(data)},
-    {"name": "number", "symbols": ["digits", {"literal":"."}, "digits"], "postprocess": (data) => Number(data.join(""))},
-    {"name": "digits", "symbols": ["digit"], "postprocess": id},
-    {"name": "digits", "symbols": ["digit", "digits"], "postprocess": (data) => data.join("")},
-    {"name": "digit", "symbols": [/[0-9]/], "postprocess": id},
+    {"name": "cNull", "symbols": [(tokens.has("cNull") ? {type: "cNull"} : cNull)], "postprocess": () => null},
+    {"name": "boolean", "symbols": [(tokens.has("boolean_true") ? {type: "boolean_true"} : boolean_true)], "postprocess": () => true},
+    {"name": "boolean", "symbols": [(tokens.has("boolean_false") ? {type: "boolean_false"} : boolean_false)], "postprocess": () => false},
+    {"name": "number", "symbols": [(tokens.has("number") ? {type: "number"} : number)], "postprocess": id},
     {"name": "nonDigit", "symbols": [/[a-zA-Z_]/], "postprocess": id},
-    {"name": "_$ebnf$1", "symbols": []},
-    {"name": "_$ebnf$1", "symbols": ["_$ebnf$1", /[ \t]/], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "_", "symbols": ["_$ebnf$1"]}
+    {"name": "_", "symbols": [(tokens.has("whitespace") ? {type: "whitespace"} : whitespace)], "postprocess": id}
 ]
   , ParserStart: "input"
 }

@@ -1,11 +1,8 @@
 @{%
-
-const nm = require('nearley-moo')
 const tokens = require('./tokens.js')
-
-nm(tokens)
-
 %}
+
+@lexer tokens
 
 input 
     -> _ value _ 
@@ -63,7 +60,7 @@ escape
         %}
 
 hex
-    -> digit 
+    -> %number
         {% (data) =>  Number(data[0]) %}
     | [a-fA-F] 
         {% 

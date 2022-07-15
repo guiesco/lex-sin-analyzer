@@ -1,4 +1,7 @@
-module.exports = {
+
+const moo = require("moo")
+
+const mooLex = moo.compile({
     whitespace: /[ \t]+/,
     boolean: ['true', 'false'],
     keyword: ['if', 'then', 'else'],
@@ -11,4 +14,6 @@ module.exports = {
     cNull: 'null',
     NL: { match: /\n/, lineBreaks: true },
     eof: 'eof'
-}
+})
+
+module.exports = mooLex
