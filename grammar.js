@@ -9,6 +9,14 @@ var grammar = {
     ParserRules: [
     {"name": "input", "symbols": ["_", "value", "_"], "postprocess": (data) => data[1]},
     {"name": "input", "symbols": ["identifier"], "postprocess": id},
+    {"name": "input", "symbols": ["attribution"]},
+    {"name": "attribution", "symbols": ["identifier", "_", {"literal":"="}, "_", "value"], "postprocess":  (data) => {
+            const [, name, value] = data
+            return {
+                type: 'attribution',
+                data
+            }
+        } },
     {"name": "value", "symbols": ["number"], "postprocess": id},
     {"name": "value", "symbols": ["boolean"], "postprocess": id},
     {"name": "value", "symbols": [(tokens.has("string") ? {type: "string"} : string)], "postprocess": id},

@@ -8,6 +8,17 @@ input
     -> _ value _ 
         {% (data) => data[1] %}
     | identifier {% id %}
+    | attribution
+
+attribution
+    -> identifier _ "=" _ value
+        {% (data) => {
+            const [, name, value] = data
+            return {
+                type: 'attribution',
+                data
+            }
+        } %}
 
 value 
     -> number {% id %}
