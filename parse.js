@@ -4,8 +4,7 @@ const grammar = require("./grammar.js");
 const tokens = require("./tokens.js");
 const fs = require("mz/fs");
 
-const nm = require('nearley-moo').parser(nearley, grammar) // curried
-
+const nm = require('nearley-moo').parser(nearley, { ParserRules: grammar, ParserStart: { keepHistory: true } }) // curried
 
 async function main() {
     const input = (await fs.readFile("input.txt")).toString();
