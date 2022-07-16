@@ -11,6 +11,7 @@ input
     | attribution
     | declaration
     | keyword {% id %}
+    | additive {% id %}
 
 
 declaration 
@@ -39,6 +40,63 @@ attribution
         } %}
 
 keyword -> %keyword {% id %}
+
+additive
+    -> multiplicative _  plus _ additive
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[2],
+                    left: data[0],
+                    right: data[4]
+                };
+            }
+        %}
+    | multiplicative _  minus _ additive
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[2],
+                    left: data[0],
+                    right: data[4]
+                };
+            }
+
+        %}
+    | multiplicative {% id %}
+
+
+multiplicative 
+    -> number _ times _ multiplicative
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[2],
+                    left: data[0],
+                    right: data[4]
+                };
+            }
+        %}
+    | number _ divide _ multiplicative
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[2],
+                    left: data[0],
+                    right: data[4]
+                };
+            }
+        %} 
+    | number {% id %}
+
+multiplicative_sign -> %multiplicative_sign {% id %}
+
+additive_sign -> %additive_sign {% id %}
+
 
 value 
     -> number {% id %}
@@ -119,6 +177,18 @@ boolean
 
 number 
     -> %number {% id %}
+
+plus 
+    -> %plus {% id %}
+
+minus 
+    -> %minus {% id %}
+
+times 
+    -> %times {% id %}
+
+divide 
+    -> %divide {% id %}
 
 nonDigit -> [a-zA-Z_] {% id %}
 
