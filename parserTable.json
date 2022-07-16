@@ -138,6 +138,21 @@
      "id": 16,
      "name": "additive",
      "symbols": [
+      "lparan",
+      "_",
+      "multiplicative",
+      "_",
+      "plus",
+      "_",
+      "additive",
+      "_",
+      "rparan"
+     ]
+    },
+    {
+     "id": 17,
+     "name": "additive",
+     "symbols": [
       "multiplicative",
       "_",
       "minus",
@@ -146,14 +161,40 @@
      ]
     },
     {
-     "id": 17,
+     "id": 18,
+     "name": "additive",
+     "symbols": [
+      "lparan",
+      "_",
+      "multiplicative",
+      "_",
+      "minus",
+      "_",
+      "additive",
+      "_",
+      "rparan"
+     ]
+    },
+    {
+     "id": 19,
+     "name": "additive",
+     "symbols": [
+      "lparan",
+      "_",
+      "multiplicative",
+      "_",
+      "rparan"
+     ]
+    },
+    {
+     "id": 20,
      "name": "additive",
      "symbols": [
       "multiplicative"
      ]
     },
     {
-     "id": 18,
+     "id": 21,
      "name": "multiplicative",
      "symbols": [
       "number",
@@ -164,7 +205,22 @@
      ]
     },
     {
-     "id": 19,
+     "id": 22,
+     "name": "multiplicative",
+     "symbols": [
+      "lparan",
+      "_",
+      "number",
+      "_",
+      "times",
+      "_",
+      "multiplicative",
+      "_",
+      "rparan"
+     ]
+    },
+    {
+     "id": 23,
      "name": "multiplicative",
      "symbols": [
       "number",
@@ -175,46 +231,54 @@
      ]
     },
     {
-     "id": 20,
+     "id": 24,
+     "name": "multiplicative",
+     "symbols": [
+      "lparan",
+      "_",
+      "number",
+      "_",
+      "divide",
+      "_",
+      "multiplicative",
+      "_",
+      "rparan"
+     ]
+    },
+    {
+     "id": 25,
+     "name": "multiplicative",
+     "symbols": [
+      "lparan",
+      "_",
+      "number",
+      "_",
+      "rparan"
+     ]
+    },
+    {
+     "id": 26,
      "name": "multiplicative",
      "symbols": [
       "number"
      ]
     },
     {
-     "id": 21,
-     "name": "multiplicative_sign",
-     "symbols": [
-      {
-       "type": "multiplicative_sign"
-      }
-     ]
-    },
-    {
-     "id": 22,
-     "name": "additive_sign",
-     "symbols": [
-      {
-       "type": "additive_sign"
-      }
-     ]
-    },
-    {
-     "id": 23,
+     "id": 27,
      "name": "value",
      "symbols": [
       "number"
      ]
     },
     {
-     "id": 24,
+     "id": 28,
      "name": "value",
      "symbols": [
       "boolean"
      ]
     },
     {
-     "id": 25,
+     "id": 29,
      "name": "value",
      "symbols": [
       {
@@ -223,21 +287,21 @@
      ]
     },
     {
-     "id": 26,
+     "id": 30,
      "name": "value",
      "symbols": [
       "array"
      ]
     },
     {
-     "id": 27,
+     "id": 31,
      "name": "value",
      "symbols": [
       "cNull"
      ]
     },
     {
-     "id": 28,
+     "id": 32,
      "name": "identifier",
      "symbols": [
       {
@@ -246,7 +310,7 @@
      ]
     },
     {
-     "id": 29,
+     "id": 33,
      "name": "array",
      "symbols": [
       {
@@ -261,7 +325,7 @@
      ]
     },
     {
-     "id": 30,
+     "id": 34,
      "name": "array",
      "symbols": [
       {
@@ -274,14 +338,14 @@
      ]
     },
     {
-     "id": 31,
+     "id": 35,
      "name": "array_items",
      "symbols": [
       "value"
      ]
     },
     {
-     "id": 32,
+     "id": 36,
      "name": "array_items",
      "symbols": [
       "value",
@@ -294,7 +358,7 @@
      ]
     },
     {
-     "id": 33,
+     "id": 37,
      "name": "string",
      "symbols": [
       {
@@ -307,14 +371,14 @@
      ]
     },
     {
-     "id": 34,
+     "id": 38,
      "name": "characters",
      "symbols": [
       "character"
      ]
     },
     {
-     "id": 35,
+     "id": 39,
      "name": "characters",
      "symbols": [
       "character",
@@ -322,14 +386,14 @@
      ]
     },
     {
-     "id": 36,
+     "id": 40,
      "name": "character",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 37,
+     "id": 41,
      "name": "character",
      "symbols": [
       {
@@ -339,7 +403,7 @@
      ]
     },
     {
-     "id": 38,
+     "id": 42,
      "name": "escape",
      "symbols": [
       {
@@ -348,7 +412,7 @@
      ]
     },
     {
-     "id": 39,
+     "id": 43,
      "name": "escape",
      "symbols": [
       {
@@ -357,7 +421,7 @@
      ]
     },
     {
-     "id": 40,
+     "id": 44,
      "name": "escape",
      "symbols": [
       {
@@ -366,7 +430,7 @@
      ]
     },
     {
-     "id": 41,
+     "id": 45,
      "name": "escape",
      "symbols": [
       {
@@ -375,7 +439,7 @@
      ]
     },
     {
-     "id": 42,
+     "id": 46,
      "name": "escape",
      "symbols": [
       {
@@ -384,7 +448,7 @@
      ]
     },
     {
-     "id": 43,
+     "id": 47,
      "name": "escape",
      "symbols": [
       {
@@ -393,7 +457,7 @@
      ]
     },
     {
-     "id": 44,
+     "id": 48,
      "name": "escape",
      "symbols": [
       {
@@ -402,7 +466,7 @@
      ]
     },
     {
-     "id": 45,
+     "id": 49,
      "name": "escape",
      "symbols": [
       {
@@ -411,7 +475,7 @@
      ]
     },
     {
-     "id": 46,
+     "id": 50,
      "name": "escape",
      "symbols": [
       {
@@ -424,7 +488,7 @@
      ]
     },
     {
-     "id": 47,
+     "id": 51,
      "name": "hex",
      "symbols": [
       {
@@ -433,14 +497,14 @@
      ]
     },
     {
-     "id": 48,
+     "id": 52,
      "name": "hex",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 49,
+     "id": 53,
      "name": "cNull",
      "symbols": [
       {
@@ -449,7 +513,7 @@
      ]
     },
     {
-     "id": 50,
+     "id": 54,
      "name": "boolean",
      "symbols": [
       {
@@ -458,7 +522,7 @@
      ]
     },
     {
-     "id": 51,
+     "id": 55,
      "name": "boolean",
      "symbols": [
       {
@@ -467,7 +531,7 @@
      ]
     },
     {
-     "id": 52,
+     "id": 56,
      "name": "number",
      "symbols": [
       {
@@ -476,7 +540,25 @@
      ]
     },
     {
-     "id": 53,
+     "id": 57,
+     "name": "rparan",
+     "symbols": [
+      {
+       "type": "rparan"
+      }
+     ]
+    },
+    {
+     "id": 58,
+     "name": "lparan",
+     "symbols": [
+      {
+       "type": "lparan"
+      }
+     ]
+    },
+    {
+     "id": 59,
      "name": "plus",
      "symbols": [
       {
@@ -485,7 +567,7 @@
      ]
     },
     {
-     "id": 54,
+     "id": 60,
      "name": "minus",
      "symbols": [
       {
@@ -494,7 +576,7 @@
      ]
     },
     {
-     "id": 55,
+     "id": 61,
      "name": "times",
      "symbols": [
       {
@@ -503,7 +585,7 @@
      ]
     },
     {
-     "id": 56,
+     "id": 62,
      "name": "divide",
      "symbols": [
       {
@@ -512,19 +594,19 @@
      ]
     },
     {
-     "id": 57,
+     "id": 63,
      "name": "nonDigit",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 58,
+     "id": 64,
      "name": "_$ebnf$1",
      "symbols": []
     },
     {
-     "id": 59,
+     "id": 65,
      "name": "_$ebnf$1",
      "symbols": [
       "_$ebnf$1",
@@ -534,7 +616,7 @@
      ]
     },
     {
-     "id": 60,
+     "id": 66,
      "name": "_",
      "symbols": [
       "_$ebnf$1"
@@ -572,17 +654,17 @@
     "additive": [
      null,
      null,
+     null,
+     null,
+     null,
      null
     ],
     "multiplicative": [
      null,
      null,
-     null
-    ],
-    "multiplicative_sign": [
-     null
-    ],
-    "additive_sign": [
+     null,
+     null,
+     null,
      null
     ],
     "value": [
@@ -637,6 +719,12 @@
      null
     ],
     "number": [
+     null
+    ],
+    "rparan": [
+     null
+    ],
+    "lparan": [
      null
     ],
     "plus": [
@@ -1004,11 +1092,11 @@
       }
      }
     },
-    "buffer": "4 / 4",
+    "buffer": "(3 * 4) + 3 + (3)",
     "stack": [],
-    "index": 5,
+    "index": 17,
     "line": 1,
-    "col": 6,
+    "col": 18,
     "queuedToken": null,
     "queuedThrow": null,
     "state": "start"
@@ -1162,6 +1250,24 @@
     "dot": 0,
     "reference": 0,
     "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
     "wantedBy": [
      null,
      {
@@ -1209,6 +1315,38 @@
     "dot": 0,
     "reference": 0,
     "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 0,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
     "isComplete": false
    },
    {
@@ -1342,6 +1480,7 @@
    null,
    null,
    null,
+   null,
    null
   ],
   "completed": {
@@ -1374,9 +1513,9 @@
     "dot": 1,
     "reference": 0,
     "data": {
-     "type": "number",
-     "value": "4",
-     "text": "4",
+     "type": "lparan",
+     "value": "(",
+     "text": "(",
      "offset": 0,
      "lineBreaks": 0,
      "line": 1,
@@ -1387,12 +1526,14 @@
    {
     "dot": 1,
     "reference": 0,
-    "isComplete": true
+    "data": [],
+    "isComplete": false
    },
    {
     "dot": 1,
     "reference": 0,
-    "isComplete": true
+    "data": [],
+    "isComplete": false
    },
    {
     "dot": 1,
@@ -1405,17 +1546,6 @@
     "reference": 0,
     "data": [],
     "isComplete": false
-   },
-   {
-    "dot": 2,
-    "reference": 0,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 1,
-    "reference": 0,
-    "isComplete": true
    },
    {
     "dot": 1,
@@ -1438,14 +1568,10 @@
      null,
      null,
      null,
+     null,
      null
     ],
     "isComplete": false
-   },
-   {
-    "dot": 1,
-    "reference": 0,
-    "isComplete": true
    },
    {
     "dot": 0,
@@ -1487,9 +1613,16 @@
     "isComplete": false
    },
    {
-    "dot": 3,
+    "dot": 2,
     "reference": 0,
-    "isComplete": true
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
    },
    {
     "dot": 2,
@@ -1508,6 +1641,52 @@
     "reference": 1,
     "data": [],
     "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 1,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
      null
     ],
     "isComplete": false
@@ -1517,24 +1696,8 @@
     "reference": 1,
     "data": [],
     "wantedBy": [
-     null
-    ],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 1,
-    "data": [],
-    "wantedBy": [
-     null
-    ],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 1,
-    "data": [],
-    "wantedBy": [
+     null,
+     null,
      null
     ],
     "isComplete": false
@@ -1542,8 +1705,6 @@
   ],
   "wants": {},
   "scannable": [
-   null,
-   null,
    null,
    null,
    null
@@ -1569,134 +1730,67 @@
   "index": 2,
   "states": [
    {
-    "dot": 2,
-    "reference": 1,
-    "data": [
-     {
-      "type": "whitespace",
-      "value": " ",
-      "text": " ",
-      "offset": 1,
-      "lineBreaks": 0,
-      "line": 1,
-      "col": 2
-     }
-    ],
-    "isComplete": true
-   },
-   {
     "dot": 1,
     "reference": 1,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 1,
-    "reference": 1,
-    "isComplete": true
-   },
-   {
-    "dot": 2,
-    "reference": 0,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 2,
-    "reference": 0,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 3,
-    "reference": 0,
-    "isComplete": true
-   },
-   {
-    "dot": 2,
-    "reference": 0,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 2,
-    "reference": 0,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 2,
-    "data": [],
-    "wantedBy": [
-     null
-    ],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 2,
-    "data": [],
-    "wantedBy": [
-     null
-    ],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 2,
-    "data": [],
-    "wantedBy": [
-     null
-    ],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 2,
-    "data": [],
-    "wantedBy": [
-     null
-    ],
-    "isComplete": false
-   }
-  ],
-  "wants": {},
-  "scannable": [
-   null,
-   null,
-   null,
-   null,
-   null
-  ],
-  "completed": {},
-  "lexerState": {
-   "line": 1,
-   "col": 4,
-   "state": "start",
-   "stack": [],
-   "queuedToken": null,
-   "queuedThrow": null
-  }
- },
- {
-  "index": 3,
-  "states": [
-   {
-    "dot": 1,
-    "reference": 2,
     "data": {
-     "type": "divide",
-     "value": "/",
-     "text": "/",
-     "offset": 2,
+     "type": "number",
+     "value": "3",
+     "text": "3",
+     "offset": 1,
      "lineBreaks": 0,
      "line": 1,
-     "col": 3
+     "col": 2
     },
     "isComplete": true
    },
    {
+    "dot": 1,
+    "reference": 1,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
     "dot": 3,
     "reference": 0,
     "data": [],
@@ -1704,22 +1798,29 @@
    },
    {
     "dot": 0,
-    "reference": 3,
+    "reference": 2,
     "data": [],
     "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
      null
     ],
     "isComplete": false
    },
    {
     "dot": 0,
-    "reference": 3,
+    "reference": 2,
     "data": [],
     "wantedBy": [
      null,
      {
       "dot": 0,
-      "reference": 3,
+      "reference": 2,
       "data": [],
       "isComplete": false
      }
@@ -1729,12 +1830,12 @@
    null,
    {
     "dot": 1,
-    "reference": 3,
+    "reference": 2,
     "isComplete": true
    },
    {
     "dot": 1,
-    "reference": 3,
+    "reference": 2,
     "data": [],
     "isComplete": false
    },
@@ -1745,8 +1846,50 @@
     "isComplete": false
    },
    {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
     "dot": 0,
-    "reference": 3,
+    "reference": 2,
     "data": [],
     "wantedBy": [
      null
@@ -1755,22 +1898,38 @@
    },
    {
     "dot": 0,
-    "reference": 3,
+    "reference": 2,
     "data": [],
+    "wantedBy": [
+     null
+    ],
     "isComplete": false
    },
    {
     "dot": 0,
-    "reference": 3,
-    "data": [],
-    "isComplete": false
-   },
-   {
-    "dot": 0,
-    "reference": 3,
+    "reference": 2,
     "data": [],
     "wantedBy": [
      null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 2,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 2,
+    "data": [],
+    "wantedBy": [
      null,
      null
     ],
@@ -1779,6 +1938,10 @@
   ],
   "wants": {},
   "scannable": [
+   null,
+   null,
+   null,
+   null,
    null,
    null
   ],
@@ -1792,6 +1955,152 @@
   },
   "lexerState": {
    "line": 1,
+   "col": 4,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 3,
+  "states": [
+   {
+    "dot": 2,
+    "reference": 2,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 2,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 3
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 2,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 2,
+    "isComplete": true
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 3,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 3,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 3,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 3,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 3,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
    "col": 5,
    "state": "start",
    "stack": [],
@@ -1803,34 +2112,27 @@
   "index": 4,
   "states": [
    {
-    "dot": 2,
+    "dot": 1,
     "reference": 3,
-    "data": [
-     {
-      "type": "whitespace",
-      "value": " ",
-      "text": " ",
-      "offset": 3,
-      "lineBreaks": 0,
-      "line": 1,
-      "col": 4
-     }
-    ],
+    "data": {
+     "type": "times",
+     "value": "*",
+     "text": "*",
+     "offset": 3,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 4
+    },
     "isComplete": true
    },
    {
-    "dot": 1,
-    "reference": 3,
+    "dot": 3,
+    "reference": 1,
     "data": [],
     "isComplete": false
    },
    {
-    "dot": 1,
-    "reference": 3,
-    "isComplete": true
-   },
-   {
-    "dot": 4,
+    "dot": 5,
     "reference": 0,
     "data": [],
     "isComplete": false
@@ -1840,6 +2142,56 @@
     "reference": 4,
     "data": [],
     "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 4,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 4,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 4,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 4,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 6,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 4,
+    "data": [],
+    "wantedBy": [
+     null,
      null
     ],
     "isComplete": false
@@ -1854,6 +2206,35 @@
     "dot": 0,
     "reference": 4,
     "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 4,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 4,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 4,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 4,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
     "isComplete": false
    },
    {
@@ -1871,9 +2252,17 @@
   "wants": {},
   "scannable": [
    null,
+   null,
    null
   ],
-  "completed": {},
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
   "lexerState": {
    "line": 1,
    "col": 6,
@@ -1887,22 +2276,19 @@
   "index": 5,
   "states": [
    {
-    "dot": 1,
+    "dot": 2,
     "reference": 4,
-    "data": {
-     "type": "number",
-     "value": "4",
-     "text": "4",
-     "offset": 4,
-     "lineBreaks": 0,
-     "line": 1,
-     "col": 5
-    },
-    "isComplete": true
-   },
-   {
-    "dot": 1,
-    "reference": 4,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 4,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 5
+     }
+    ],
     "isComplete": true
    },
    {
@@ -1914,7 +2300,953 @@
    {
     "dot": 1,
     "reference": 4,
+    "isComplete": true
+   },
+   {
+    "dot": 6,
+    "reference": 0,
     "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 1,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 5,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 7,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 6,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 5,
+    "data": {
+     "type": "number",
+     "value": "4",
+     "text": "4",
+     "offset": 5,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 6
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 5,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 5,
+    "reference": 1,
+    "data": {
+     "type": "operation"
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 7,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     {
+      "dot": 3,
+      "reference": 0,
+      "data": [],
+      "isComplete": false
+     },
+     {
+      "dot": 3,
+      "reference": 0,
+      "data": [],
+      "isComplete": false
+     },
+     {
+      "dot": 3,
+      "reference": 0,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": false
+   },
+   null,
+   null,
+   null,
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 6,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 6,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 6,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 8,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 5,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 6,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 8,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 7,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 6,
+    "data": {
+     "type": "rparan",
+     "value": ")",
+     "text": ")",
+     "offset": 6,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 7
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 9,
+    "reference": 0,
+    "data": {
+     "type": "operation"
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 5,
+    "reference": 0,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "isComplete": true
+   },
+   {
+    "dot": 0,
+    "reference": 7,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 7,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 7,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 7,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 7,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 7,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 7,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 9,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 8,
+  "states": [
+   {
+    "dot": 2,
+    "reference": 7,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 7,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 8
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 7,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 7,
+    "isComplete": true
+   },
+   {
+    "dot": 2,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 8,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 8,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 10,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 9,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 8,
+    "data": {
+     "type": "plus",
+     "value": "+",
+     "text": "+",
+     "offset": 8,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 9
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 3,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 9,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 9,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 9,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 11,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 10,
+  "states": [
+   {
+    "dot": 2,
+    "reference": 9,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 9,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 10
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 9,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 9,
+    "isComplete": true
+   },
+   {
+    "dot": 4,
+    "reference": 0,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 10,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 12,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 11,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 10,
+    "data": {
+     "type": "number",
+     "value": "3",
+     "text": "3",
+     "offset": 10,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 11
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 10,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 10,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 11,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null
+    ],
     "isComplete": false
    },
    {
@@ -1927,42 +3259,13 @@
    },
    {
     "dot": 0,
-    "reference": 5,
-    "data": [],
-    "wantedBy": [
-     null,
-     null,
-     {
-      "dot": 1,
-      "reference": 0,
-      "data": [],
-      "isComplete": false
-     },
-     {
-      "dot": 1,
-      "reference": 0,
-      "data": [],
-      "isComplete": false
-     }
-    ],
-    "isComplete": false
-   },
-   {
-    "dot": 1,
-    "reference": 0,
-    "isComplete": true
-   },
-   null,
-   null,
-   {
-    "dot": 0,
-    "reference": 5,
+    "reference": 11,
     "data": [],
     "wantedBy": [
      null,
      {
       "dot": 0,
-      "reference": 5,
+      "reference": 11,
       "data": [],
       "isComplete": false
      }
@@ -1977,42 +3280,42 @@
    },
    {
     "dot": 1,
-    "reference": 5,
+    "reference": 11,
     "isComplete": true
    },
    {
     "dot": 1,
-    "reference": 5,
+    "reference": 11,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 2,
-    "reference": 0,
+    "reference": 10,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 2,
-    "reference": 0,
+    "reference": 10,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 2,
-    "reference": 4,
+    "reference": 10,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 2,
-    "reference": 4,
+    "reference": 10,
     "data": [],
     "isComplete": false
    },
    {
     "dot": 0,
-    "reference": 5,
+    "reference": 11,
     "data": [],
     "wantedBy": [
      null
@@ -2021,7 +3324,7 @@
    },
    {
     "dot": 0,
-    "reference": 5,
+    "reference": 11,
     "data": [],
     "wantedBy": [
      null
@@ -2030,7 +3333,7 @@
    },
    {
     "dot": 0,
-    "reference": 5,
+    "reference": 11,
     "data": [],
     "wantedBy": [
      null
@@ -2039,7 +3342,7 @@
    },
    {
     "dot": 0,
-    "reference": 5,
+    "reference": 11,
     "data": [],
     "wantedBy": [
      null
@@ -2051,6 +3354,1100 @@
   "scannable": [
    null,
    null,
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 13,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 12,
+  "states": [
+   {
+    "dot": 2,
+    "reference": 11,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 11,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 12
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 11,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 11,
+    "isComplete": true
+   },
+   {
+    "dot": 2,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 12,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 12,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 12,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 12,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 14,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 13,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 12,
+    "data": {
+     "type": "plus",
+     "value": "+",
+     "text": "+",
+     "offset": 12,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 13
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 3,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 13,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 13,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 13,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 15,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 14,
+  "states": [
+   {
+    "dot": 2,
+    "reference": 13,
+    "data": [
+     {
+      "type": "whitespace",
+      "value": " ",
+      "text": " ",
+      "offset": 13,
+      "lineBreaks": 0,
+      "line": 1,
+      "col": 14
+     }
+    ],
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 13,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 13,
+    "isComplete": true
+   },
+   {
+    "dot": 4,
+    "reference": 10,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 14,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null
+  ],
+  "completed": {},
+  "lexerState": {
+   "line": 1,
+   "col": 16,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 15,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": {
+     "type": "lparan",
+     "value": "(",
+     "text": "(",
+     "offset": 14,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 15
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 15,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 15,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 15,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 17,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 16,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 15,
+    "data": {
+     "type": "number",
+     "value": "3",
+     "text": "3",
+     "offset": 15,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 16
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 15,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 3,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 16,
+    "data": [],
+    "wantedBy": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 16,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 16,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 16,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 16,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 4,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 15,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 16,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 16,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 16,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 16,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 16,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "completed": {
+   "_$ebnf$1": [
+    null
+   ],
+   "_": [
+    null
+   ]
+  },
+  "lexerState": {
+   "line": 1,
+   "col": 18,
+   "state": "start",
+   "stack": [],
+   "queuedToken": null,
+   "queuedThrow": null
+  }
+ },
+ {
+  "index": 17,
+  "states": [
+   {
+    "dot": 1,
+    "reference": 16,
+    "data": {
+     "type": "rparan",
+     "value": ")",
+     "text": ")",
+     "offset": 16,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 17
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 5,
+    "reference": 14,
+    "isComplete": true
+   },
+   {
+    "dot": 5,
+    "reference": 14,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 1,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 5,
+    "reference": 10,
+    "data": {
+     "type": "operation"
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 5,
+    "reference": 10,
+    "data": {
+     "type": "operation"
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 0,
+    "reference": 17,
+    "data": [],
+    "wantedBy": [
+     null,
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 5,
+    "reference": 0,
+    "data": {
+     "type": "operation"
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 5,
+    "reference": 0,
+    "data": {
+     "type": "operation"
+    },
+    "isComplete": true
+   },
+   {
+    "dot": 0,
+    "reference": 17,
+    "data": [],
+    "wantedBy": [
+     null,
+     {
+      "dot": 0,
+      "reference": 17,
+      "data": [],
+      "isComplete": false
+     }
+    ],
+    "isComplete": true
+   },
+   null,
+   {
+    "dot": 1,
+    "reference": 0,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 0,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 17,
+    "isComplete": true
+   },
+   {
+    "dot": 1,
+    "reference": 17,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 2,
+    "reference": 14,
+    "data": [],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 17,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   },
+   {
+    "dot": 0,
+    "reference": 17,
+    "data": [],
+    "wantedBy": [
+     null
+    ],
+    "isComplete": false
+   }
+  ],
+  "wants": {},
+  "scannable": [
    null,
    null,
    null

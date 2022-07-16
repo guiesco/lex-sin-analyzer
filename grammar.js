@@ -46,6 +46,16 @@ var grammar = {
             };
         }
                 },
+    {"name": "additive", "symbols": ["lparan", "_", "multiplicative", "_", "plus", "_", "additive", "_", "rparan"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[4],
+                left: data[2],
+                right: data[6]
+            };
+        }
+                },
     {"name": "additive", "symbols": ["multiplicative", "_", "minus", "_", "additive"], "postprocess": 
         (data) => {
             return {
@@ -57,6 +67,17 @@ var grammar = {
         }
         
                 },
+    {"name": "additive", "symbols": ["lparan", "_", "multiplicative", "_", "minus", "_", "additive", "_", "rparan"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[4],
+                left: data[2],
+                right: data[6]
+            };
+        }
+                },
+    {"name": "additive", "symbols": ["lparan", "_", "multiplicative", "_", "rparan"], "postprocess": (data) => data[2]},
     {"name": "additive", "symbols": ["multiplicative"], "postprocess": id},
     {"name": "multiplicative", "symbols": ["number", "_", "times", "_", "multiplicative"], "postprocess": 
         (data) => {
@@ -65,6 +86,16 @@ var grammar = {
                 op: data[2],
                 left: data[0],
                 right: data[4]
+            };
+        }
+                },
+    {"name": "multiplicative", "symbols": ["lparan", "_", "number", "_", "times", "_", "multiplicative", "_", "rparan"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[4],
+                left: data[2],
+                right: data[6]
             };
         }
                 },
@@ -78,9 +109,18 @@ var grammar = {
             };
         }
                 },
+    {"name": "multiplicative", "symbols": ["lparan", "_", "number", "_", "divide", "_", "multiplicative", "_", "rparan"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[4],
+                left: data[2],
+                right: data[6]
+            };
+        }
+                },
+    {"name": "multiplicative", "symbols": ["lparan", "_", "number", "_", "rparan"], "postprocess": (data) => data[2]},
     {"name": "multiplicative", "symbols": ["number"], "postprocess": id},
-    {"name": "multiplicative_sign", "symbols": [(tokens.has("multiplicative_sign") ? {type: "multiplicative_sign"} : multiplicative_sign)], "postprocess": id},
-    {"name": "additive_sign", "symbols": [(tokens.has("additive_sign") ? {type: "additive_sign"} : additive_sign)], "postprocess": id},
     {"name": "value", "symbols": ["number"], "postprocess": id},
     {"name": "value", "symbols": ["boolean"], "postprocess": id},
     {"name": "value", "symbols": [(tokens.has("string") ? {type: "string"} : string)], "postprocess": id},
@@ -127,6 +167,8 @@ var grammar = {
     {"name": "boolean", "symbols": [(tokens.has("boolean_true") ? {type: "boolean_true"} : boolean_true)], "postprocess": () => true},
     {"name": "boolean", "symbols": [(tokens.has("boolean_false") ? {type: "boolean_false"} : boolean_false)], "postprocess": () => false},
     {"name": "number", "symbols": [(tokens.has("number") ? {type: "number"} : number)], "postprocess": id},
+    {"name": "rparan", "symbols": [(tokens.has("rparan") ? {type: "rparan"} : rparan)], "postprocess": id},
+    {"name": "lparan", "symbols": [(tokens.has("lparan") ? {type: "lparan"} : lparan)], "postprocess": id},
     {"name": "plus", "symbols": [(tokens.has("plus") ? {type: "plus"} : plus)], "postprocess": id},
     {"name": "minus", "symbols": [(tokens.has("minus") ? {type: "minus"} : minus)], "postprocess": id},
     {"name": "times", "symbols": [(tokens.has("times") ? {type: "times"} : times)], "postprocess": id},

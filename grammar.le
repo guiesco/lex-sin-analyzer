@@ -53,6 +53,17 @@ additive
                 };
             }
         %}
+    | lparan _ multiplicative _  plus _ additive _ rparan
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[4],
+                    left: data[2],
+                    right: data[6]
+                };
+            }
+        %} 
     | multiplicative _  minus _ additive
         {%
             (data) => {
@@ -65,6 +76,18 @@ additive
             }
 
         %}
+    | lparan _ multiplicative _  minus _ additive _ rparan
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[4],
+                    left: data[2],
+                    right: data[6]
+                };
+            }
+        %} 
+    | lparan _ multiplicative _ rparan {%   (data) => data[2] %}
     | multiplicative {% id %}
 
 
@@ -80,6 +103,17 @@ multiplicative
                 };
             }
         %}
+    | lparan _ number _ times _ multiplicative _ rparan
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[4],
+                    left: data[2],
+                    right: data[6]
+                };
+            }
+        %} 
     | number _ divide _ multiplicative
         {%
             (data) => {
@@ -91,11 +125,19 @@ multiplicative
                 };
             }
         %} 
+    | lparan _ number _ divide _ multiplicative _ rparan
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[4],
+                    left: data[2],
+                    right: data[6]
+                };
+            }
+        %} 
+    | lparan _ number _ rparan {%   (data) => data[2] %}
     | number {% id %}
-
-multiplicative_sign -> %multiplicative_sign {% id %}
-
-additive_sign -> %additive_sign {% id %}
 
 
 value 
@@ -177,6 +219,12 @@ boolean
 
 number 
     -> %number {% id %}
+
+rparan 
+    -> %rparan {% id %}
+
+lparan 
+    -> %lparan {% id %}
 
 plus 
     -> %plus {% id %}
