@@ -10,6 +10,8 @@ input
     | identifier {% id %}
     | attribution
     | declaration
+    | keyword {% id %}
+    | additive {% id %}
 
 
 declaration 
@@ -29,13 +31,114 @@ declaration
         } %}
 
 attribution
-    -> identifier _ "=" _ value
+    -> identifier _ equals _ additive _
         {% (data) => {
             return {
                 type: 'attribution',
                 data
             }
         } %}
+
+keyword -> %keyword {% id %}
+
+additive
+    -> multiplicative _  plus _ additive _ 
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[2],
+                    left: data[0],
+                    right: data[4]
+                };
+            }
+        %}
+    | lparan _ multiplicative _  plus _ additive _ rparan  _ 
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[4],
+                    left: data[2],
+                    right: data[6]
+                };
+            }
+        %} 
+    | multiplicative _  minus _ additive  _ 
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[2],
+                    left: data[0],
+                    right: data[4]
+                };
+            }
+
+        %}
+    | lparan _ multiplicative _  minus _ additive _ rparan _ 
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[4],
+                    left: data[2],
+                    right: data[6]
+                };
+            }
+        %} 
+    | lparan _ multiplicative _ rparan _  {%   (data) => data[2] %}
+    | multiplicative _  {% id %}
+
+
+multiplicative 
+    -> number _ times _ multiplicative
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[2],
+                    left: data[0],
+                    right: data[4]
+                };
+            }
+        %}
+    | lparan _ number _ times _ multiplicative _ rparan
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[4],
+                    left: data[2],
+                    right: data[6]
+                };
+            }
+        %} 
+    | number _ divide _ multiplicative
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[2],
+                    left: data[0],
+                    right: data[4]
+                };
+            }
+        %} 
+    | lparan _ number _ divide _ multiplicative _ rparan
+        {%
+            (data) => {
+                return {
+                    type: "operation",
+                    op: data[4],
+                    left: data[2],
+                    right: data[6]
+                };
+            }
+        %} 
+    | lparan _ number _ rparan {%   (data) => data[2] %}
+    | number {% id %}
+
 
 value 
     -> number {% id %}
@@ -116,6 +219,30 @@ boolean
 
 number 
     -> %number {% id %}
+
+rparan 
+    -> %rparan {% id %}
+
+lparan 
+    -> %lparan {% id %}
+
+plus 
+    -> %plus {% id %}
+
+minus 
+    -> %minus {% id %}
+
+times 
+    -> %times {% id %}
+
+divide 
+    -> %divide {% id %}
+
+semicolon 
+    -> %semicolon {% id %}
+
+equals 
+    -> %equals {% id %}
 
 nonDigit -> [a-zA-Z_] {% id %}
 

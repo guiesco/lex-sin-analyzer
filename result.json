@@ -1,17 +1,35 @@
 [
  {
-  "type": "declaration",
+  "type": "attribution",
   "data": [
-   null,
-   [],
    {
-    "type": "type_keyword",
-    "value": "int",
-    "text": "int",
+    "type": "identifier",
+    "value": "a",
+    "text": "a",
     "offset": 0,
     "lineBreaks": 0,
     "line": 1,
     "col": 1
+   },
+   [
+    {
+     "type": "whitespace",
+     "value": " ",
+     "text": " ",
+     "offset": 1,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 2
+    }
+   ],
+   {
+    "type": "equals",
+    "value": "=",
+    "text": "=",
+    "offset": 2,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 3
    },
    [
     {
@@ -25,59 +43,15 @@
     }
    ],
    {
-    "type": "attribution",
-    "data": [
-     {
-      "type": "identifier",
-      "value": "asd",
-      "text": "asd",
-      "offset": 4,
-      "lineBreaks": 0,
-      "line": 1,
-      "col": 5
-     },
-     [
-      {
-       "type": "whitespace",
-       "value": " ",
-       "text": " ",
-       "offset": 7,
-       "lineBreaks": 0,
-       "line": 1,
-       "col": 8
-      }
-     ],
-     {
-      "type": "operator",
-      "value": "=",
-      "text": "=",
-      "offset": 8,
-      "lineBreaks": 0,
-      "line": 1,
-      "col": 9
-     },
-     [
-      {
-       "type": "whitespace",
-       "value": " ",
-       "text": " ",
-       "offset": 9,
-       "lineBreaks": 0,
-       "line": 1,
-       "col": 10
-      }
-     ],
-     {
-      "type": "number",
-      "value": "1231",
-      "text": "1231",
-      "offset": 10,
-      "lineBreaks": 0,
-      "line": 1,
-      "col": 11
-     }
-    ]
-   }
+    "type": "number",
+    "value": "3",
+    "text": "3",
+    "offset": 4,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 5
+   },
+   []
   ]
  }
 ]

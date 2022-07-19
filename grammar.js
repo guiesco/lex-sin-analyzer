@@ -11,6 +11,8 @@ var grammar = {
     {"name": "input", "symbols": ["identifier"], "postprocess": id},
     {"name": "input", "symbols": ["attribution"]},
     {"name": "input", "symbols": ["declaration"]},
+    {"name": "input", "symbols": ["keyword"], "postprocess": id},
+    {"name": "input", "symbols": ["additive"], "postprocess": id},
     {"name": "declaration$ebnf$1", "symbols": [(tokens.has("type_modifier") ? {type: "type_modifier"} : type_modifier)], "postprocess": id},
     {"name": "declaration$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
     {"name": "declaration", "symbols": ["declaration$ebnf$1", "_", (tokens.has("type_keyword") ? {type: "type_keyword"} : type_keyword), "_", "identifier", "_"], "postprocess":  (data) => {
@@ -27,12 +29,98 @@ var grammar = {
                 data
             }
         } },
-    {"name": "attribution", "symbols": ["identifier", "_", {"literal":"="}, "_", "value"], "postprocess":  (data) => {
+    {"name": "attribution", "symbols": ["identifier", "_", "equals", "_", "additive", "_"], "postprocess":  (data) => {
             return {
                 type: 'attribution',
                 data
             }
         } },
+    {"name": "keyword", "symbols": [(tokens.has("keyword") ? {type: "keyword"} : keyword)], "postprocess": id},
+    {"name": "additive", "symbols": ["multiplicative", "_", "plus", "_", "additive", "_"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[2],
+                left: data[0],
+                right: data[4]
+            };
+        }
+                },
+    {"name": "additive", "symbols": ["lparan", "_", "multiplicative", "_", "plus", "_", "additive", "_", "rparan", "_"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[4],
+                left: data[2],
+                right: data[6]
+            };
+        }
+                },
+    {"name": "additive", "symbols": ["multiplicative", "_", "minus", "_", "additive", "_"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[2],
+                left: data[0],
+                right: data[4]
+            };
+        }
+        
+                },
+    {"name": "additive", "symbols": ["lparan", "_", "multiplicative", "_", "minus", "_", "additive", "_", "rparan", "_"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[4],
+                left: data[2],
+                right: data[6]
+            };
+        }
+                },
+    {"name": "additive", "symbols": ["lparan", "_", "multiplicative", "_", "rparan", "_"], "postprocess": (data) => data[2]},
+    {"name": "additive", "symbols": ["multiplicative", "_"], "postprocess": id},
+    {"name": "multiplicative", "symbols": ["number", "_", "times", "_", "multiplicative"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[2],
+                left: data[0],
+                right: data[4]
+            };
+        }
+                },
+    {"name": "multiplicative", "symbols": ["lparan", "_", "number", "_", "times", "_", "multiplicative", "_", "rparan"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[4],
+                left: data[2],
+                right: data[6]
+            };
+        }
+                },
+    {"name": "multiplicative", "symbols": ["number", "_", "divide", "_", "multiplicative"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[2],
+                left: data[0],
+                right: data[4]
+            };
+        }
+                },
+    {"name": "multiplicative", "symbols": ["lparan", "_", "number", "_", "divide", "_", "multiplicative", "_", "rparan"], "postprocess": 
+        (data) => {
+            return {
+                type: "operation",
+                op: data[4],
+                left: data[2],
+                right: data[6]
+            };
+        }
+                },
+    {"name": "multiplicative", "symbols": ["lparan", "_", "number", "_", "rparan"], "postprocess": (data) => data[2]},
+    {"name": "multiplicative", "symbols": ["number"], "postprocess": id},
     {"name": "value", "symbols": ["number"], "postprocess": id},
     {"name": "value", "symbols": ["boolean"], "postprocess": id},
     {"name": "value", "symbols": [(tokens.has("string") ? {type: "string"} : string)], "postprocess": id},
@@ -79,6 +167,14 @@ var grammar = {
     {"name": "boolean", "symbols": [(tokens.has("boolean_true") ? {type: "boolean_true"} : boolean_true)], "postprocess": () => true},
     {"name": "boolean", "symbols": [(tokens.has("boolean_false") ? {type: "boolean_false"} : boolean_false)], "postprocess": () => false},
     {"name": "number", "symbols": [(tokens.has("number") ? {type: "number"} : number)], "postprocess": id},
+    {"name": "rparan", "symbols": [(tokens.has("rparan") ? {type: "rparan"} : rparan)], "postprocess": id},
+    {"name": "lparan", "symbols": [(tokens.has("lparan") ? {type: "lparan"} : lparan)], "postprocess": id},
+    {"name": "plus", "symbols": [(tokens.has("plus") ? {type: "plus"} : plus)], "postprocess": id},
+    {"name": "minus", "symbols": [(tokens.has("minus") ? {type: "minus"} : minus)], "postprocess": id},
+    {"name": "times", "symbols": [(tokens.has("times") ? {type: "times"} : times)], "postprocess": id},
+    {"name": "divide", "symbols": [(tokens.has("divide") ? {type: "divide"} : divide)], "postprocess": id},
+    {"name": "semicolon", "symbols": [(tokens.has("semicolon") ? {type: "semicolon"} : semicolon)], "postprocess": id},
+    {"name": "equals", "symbols": [(tokens.has("equals") ? {type: "equals"} : equals)], "postprocess": id},
     {"name": "nonDigit", "symbols": [/[a-zA-Z_]/], "postprocess": id},
     {"name": "_$ebnf$1", "symbols": []},
     {"name": "_$ebnf$1", "symbols": ["_$ebnf$1", (tokens.has("whitespace") ? {type: "whitespace"} : whitespace)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
