@@ -31,7 +31,7 @@ declaration
         } %}
 
 attribution
-    -> identifier _ "=" _ value
+    -> identifier _ equals _ additive _
         {% (data) => {
             return {
                 type: 'attribution',
@@ -42,7 +42,7 @@ attribution
 keyword -> %keyword {% id %}
 
 additive
-    -> multiplicative _  plus _ additive
+    -> multiplicative _  plus _ additive _ 
         {%
             (data) => {
                 return {
@@ -53,7 +53,7 @@ additive
                 };
             }
         %}
-    | lparan _ multiplicative _  plus _ additive _ rparan
+    | lparan _ multiplicative _  plus _ additive _ rparan  _ 
         {%
             (data) => {
                 return {
@@ -64,7 +64,7 @@ additive
                 };
             }
         %} 
-    | multiplicative _  minus _ additive
+    | multiplicative _  minus _ additive  _ 
         {%
             (data) => {
                 return {
@@ -76,7 +76,7 @@ additive
             }
 
         %}
-    | lparan _ multiplicative _  minus _ additive _ rparan
+    | lparan _ multiplicative _  minus _ additive _ rparan _ 
         {%
             (data) => {
                 return {
@@ -87,8 +87,8 @@ additive
                 };
             }
         %} 
-    | lparan _ multiplicative _ rparan {%   (data) => data[2] %}
-    | multiplicative {% id %}
+    | lparan _ multiplicative _ rparan _  {%   (data) => data[2] %}
+    | multiplicative _  {% id %}
 
 
 multiplicative 
@@ -237,6 +237,12 @@ times
 
 divide 
     -> %divide {% id %}
+
+semicolon 
+    -> %semicolon {% id %}
+
+equals 
+    -> %equals {% id %}
 
 nonDigit -> [a-zA-Z_] {% id %}
 

@@ -1,72 +1,57 @@
-{
- "type": "operation",
- "op": {
-  "type": "plus",
-  "value": "+",
-  "text": "+",
-  "offset": 8,
-  "lineBreaks": 0,
-  "line": 1,
-  "col": 9
- },
- "left": {
-  "type": "operation",
-  "op": {
-   "type": "times",
-   "value": "*",
-   "text": "*",
-   "offset": 3,
-   "lineBreaks": 0,
-   "line": 1,
-   "col": 4
-  },
-  "left": {
-   "type": "number",
-   "value": "3",
-   "text": "3",
-   "offset": 1,
-   "lineBreaks": 0,
-   "line": 1,
-   "col": 2
-  },
-  "right": {
-   "type": "number",
-   "value": "4",
-   "text": "4",
-   "offset": 5,
-   "lineBreaks": 0,
-   "line": 1,
-   "col": 6
-  }
- },
- "right": {
-  "type": "operation",
-  "op": {
-   "type": "plus",
-   "value": "+",
-   "text": "+",
-   "offset": 12,
-   "lineBreaks": 0,
-   "line": 1,
-   "col": 13
-  },
-  "left": {
-   "type": "number",
-   "value": "3",
-   "text": "3",
-   "offset": 10,
-   "lineBreaks": 0,
-   "line": 1,
-   "col": 11
-  },
-  "right": {
-   "type": "number",
-   "value": "3",
-   "text": "3",
-   "offset": 15,
-   "lineBreaks": 0,
-   "line": 1,
-   "col": 16
-  }
+[
+ {
+  "type": "attribution",
+  "data": [
+   {
+    "type": "identifier",
+    "value": "a",
+    "text": "a",
+    "offset": 0,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 1
+   },
+   [
+    {
+     "type": "whitespace",
+     "value": " ",
+     "text": " ",
+     "offset": 1,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 2
+    }
+   ],
+   {
+    "type": "equals",
+    "value": "=",
+    "text": "=",
+    "offset": 2,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 3
+   },
+   [
+    {
+     "type": "whitespace",
+     "value": " ",
+     "text": " ",
+     "offset": 3,
+     "lineBreaks": 0,
+     "line": 1,
+     "col": 4
+    }
+   ],
+   {
+    "type": "number",
+    "value": "3",
+    "text": "3",
+    "offset": 4,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 5
+   },
+   []
+  ]
  }
-}
+]
