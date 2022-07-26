@@ -1,7 +1,4 @@
-def func1 ( int A , int B )
+def func1 ( int A , int B, float C )
 {
-int SM [2];
-SM [0] = A + B ;
-SM [1] = B * C ;
-return ;
+    int a = 1;
 }

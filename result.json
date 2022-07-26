@@ -1,24 +1,38 @@
 [
- {
-  "type": "attribution",
-  "data": [
-   "identifier",
-   "whitespace",
-   "equals",
-   "whitespace",
-   "number",
-   "whitespace"
-  ]
- },
- {
-  "a": {
-   "type": "identifier",
-   "value": "a",
-   "text": "a",
-   "offset": 0,
-   "lineBreaks": 0,
-   "line": 1,
-   "col": 1
-  }
- }
+ "def",
+ "whitespace",
+ "identifier",
+ "whitespace",
+ "lparan",
+ "whitespace",
+ "int",
+ "whitespace",
+ "identifier",
+ "whitespace",
+ ",",
+ "whitespace",
+ "int",
+ "whitespace",
+ "identifier",
+ "whitespace",
+ ",",
+ "whitespace",
+ "float",
+ "whitespace",
+ "identifier",
+ "whitespace",
+ "rparan",
+ "whitespace",
+ "newline",
+ "whitespace",
+ "lbrace",
+ "whitespace",
+ "newline",
+ "whitespace",
+ "type_keyword",
+ "whitespace",
+ "newline",
+ "whitespace",
+ "rbrace",
+ "whitespace"
 ]

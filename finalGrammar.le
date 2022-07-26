@@ -5,69 +5,105 @@ const symbolTable = {}
 
 @lexer tokens
 
-
 program 
-    -> statement:?
-    | funclist:?
+    -> statement:? {% id %}
+    | funclist:? {% id %}
 
 funclist 
-    -> funcdef funclist 
-    | funcdef
+    -> funcdef funclist {% data => data.join("") %}
+    | funcdef {% id %}
 
-funcdef -> "def" _ identifier _ "(" _ paramlist _ ")" _ "{" _ statelist _ "}" _
+funcdef -> %def _ identifier _ %lparan _ paramlist _ %rparan _ NL _ %lbrace _ NL _ statelist _ NL _ %rbrace _
+    {% data => {
+        const returnData = []
+        data.forEach(function(token) {
+            if (typeof token.type === "string") {
+                returnData.push(token.type)
+            } else if(Array.isArray(token)) {
+                returnData.push(...token)
+            } else {
+                returnData.push(token)
+            }
+        })
+        return returnData
+    } %}
 
-paramlist -> 
-    (( int | float | string ) identifier "," paramlist 
-    |( int | float | string ) identifier):?
+paramlist 
+    -> %type_keyword _ identifier _ %comma _ paramlist 
+    {% data => {
+        data[0] = data[0].value
+        data[4] = data[4].value
+        if(Array.isArray(data[6])) {
+            data.push(...data[6])
+            data.splice(6, 1)
+        }
+        return data
+    } %}
+    | %type_keyword _ identifier:? 
+    {% data => {
+        data[0] = data[0].value
+        return data
+    } %}
+
+statelist -> statement statelist:? 
+    {% id %}
 
 statement ->
-     vardecl %semicolon 
-     | atribstat %semicolon 
-     | printstat %semicolon 
-     | readstat %semicolon 
-     | returnstat %semicolon 
-     | ifstat 
-     | forstat 
-     | "{" statelist "}" 
-     | break %semicolon 
-     |  %semicolon
+     vardecl %semicolon NL {% id %}
+     | atribstat %semicolon NL {% id %}
+     | printstat %semicolon NL {% id %}
+     | readstat %semicolon NL {% id %}
+     | returnstat %semicolon NL {% id %}
+     | ifstat {% id %}
+     | forstat {% id %}
+     | %lbrace statelist %rbrace {% id %}
+     | "break" %semicolon NL {% id %}
+     | %semicolon NL {% id %}
 
-vardecl -> (int|float|string) %identifier ("[" %digit "]"):*
+vardecl 
+    -> %type_keyword _ %identifier _ (%lbracket %digit %rbracket):* {% id %}
+    | %type_keyword _ atribstat {% id %}
 
-atribstat -> lvalue equals ( expression | allocexpression | funccall)
+atribstat -> lvalue _ %equals _ ( expression | allocexpression | funccall)
 
-funccall -> %identifier(paramlistcall)
+funccall -> identifier %lparan paramlistcall %rparan
 
-paramlistcall -> (%identifier, paramlistcall | %identifier):?
+paramlistcall -> (identifier %comma paramlistcall | identifier):?
 
-printstat -> print expression
+printstat -> "print" expression
 
-readstat -> read lvalue
+readstat -> "read" lvalue
 
-returnstat -> return
+returnstat -> "return"
 
-ifstat -> if( expression ) statement (else statement):?
+ifstat -> "if" %lparan expression %rparan statement ("else" statement):?
 
-forstat -> for(atribstat %semicolon expression %semicolon atribstat)
+forstat -> "for" %lparan atribstat %semicolon expression %semicolon atribstat %rparan
 statement
 
-statelist -> statement(statelist):?
+allocexpression -> "new" %type_keyword (%lbracket numexpression %rbracket):+
 
-allocexpression -> new (int | float | string) ([ numexpression ]):+
+expression -> numexpression (( %minor | %major | %minor_or_equal | %major_or_equal | %equal_equal | %not_equal ) numexpression):?
 
-expression -> numexpression(( < | > | <= | >= | == | ! =)numexpression):?
+numexpression -> term ((%plus | %minus) term):*
 
-numexpression -> term ((+ |−) term):∗
+term -> unaryexpr (( %times | %divide | %percentage) unaryexpr):*
 
-term -> unaryexpr(( ∗ | / | %) unaryexpr):∗
+unaryexpr -> ((%plus | %minus)):? factor
 
-unaryexpr -> ((+ |−)):? factor
+factor 
+    -> %number {% id %}
+    | %digit {% id %}
+    | %string {% id %}
+    | null {% () => null %}
+    | lvalue {% id %}
+    | %lparan numexpression %rparan 
 
-factor -> (int constant | float constant | string constant | null | lvalue |(numexpression))
-
-lvalue -> identifier( [ numexpression ] ):*
+lvalue -> identifier ( %lbracket numexpression %rbracket ):* {% id %}
 
 _ -> %whitespace:* {% () => "whitespace" %}
+
+NL -> %NL:* {% () => "newline" %}
 
 identifier -> %identifier 
     {% 
