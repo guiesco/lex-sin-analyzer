@@ -1,5 +1,6 @@
 @{%
 const tokens = require('./tokens.js')
+const symbolTable = {}
 %}
 
 @lexer tokens
@@ -8,7 +9,8 @@ input
     -> _ value _ 
         {% (data) => data[1] %}
     | identifier {% id %}
-    | attribution
+    | attribution 
+        {% (data) => [data[0], symbolTable] %}
     | declaration
     | keyword {% id %}
     | additive {% id %}
@@ -39,7 +41,7 @@ attribution
             }
         } %}
 
-keyword -> %keyword {% id %}
+
 
 additive
     -> multiplicative _  plus _ additive _ 
@@ -147,8 +149,6 @@ value
     | array {% id %}
     | cNull {% id %}
 
-identifier -> %identifier {% id %}
-
 array 
     -> "[" _ array_items _ "]"
         {% (data) => data[2] %}
@@ -218,32 +218,43 @@ boolean
         {% () => false %}
 
 number 
-    -> %number {% id %}
+    -> %number {% data => data[0].type %}
 
 rparan 
-    -> %rparan {% id %}
+    -> %rparan {% data => data[0].type %}
 
 lparan 
-    -> %lparan {% id %}
+    -> %lparan {% data => data[0].type %}
 
 plus 
-    -> %plus {% id %}
+    -> %plus {% data => data[0].type %}
 
 minus 
-    -> %minus {% id %}
+    -> %minus {% data => data[0].type %}
 
 times 
-    -> %times {% id %}
+    -> %times {% data => data[0].type %}
 
 divide 
-    -> %divide {% id %}
+    -> %divide {% data => data[0].type %}
 
 semicolon 
-    -> %semicolon {% id %}
+    -> %semicolon {% data => data[0].type %}
 
 equals 
-    -> %equals {% id %}
+    -> %equals {% data => data[0].type %}
 
-nonDigit -> [a-zA-Z_] {% id %}
+keyword -> %keyword {% data => data[0].type %}
 
-_ -> %whitespace:* {% id %}
+nonDigit -> [a-zA-Z_] {% data => data[0].type %}
+
+_ -> %whitespace:* {% () => "whitespace" %}
+
+identifier -> %identifier 
+    {% 
+    data => {
+        const identifierInfo = data[0]
+        symbolTable[identifierInfo.value] = data[0]
+        return identifierInfo.type
+    } 
+    %}

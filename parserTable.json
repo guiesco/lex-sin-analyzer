@@ -307,15 +307,6 @@
     },
     {
      "id": 32,
-     "name": "identifier",
-     "symbols": [
-      {
-       "type": "identifier"
-      }
-     ]
-    },
-    {
-     "id": 33,
      "name": "array",
      "symbols": [
       {
@@ -330,7 +321,7 @@
      ]
     },
     {
-     "id": 34,
+     "id": 33,
      "name": "array",
      "symbols": [
       {
@@ -343,14 +334,14 @@
      ]
     },
     {
-     "id": 35,
+     "id": 34,
      "name": "array_items",
      "symbols": [
       "value"
      ]
     },
     {
-     "id": 36,
+     "id": 35,
      "name": "array_items",
      "symbols": [
       "value",
@@ -363,7 +354,7 @@
      ]
     },
     {
-     "id": 37,
+     "id": 36,
      "name": "string",
      "symbols": [
       {
@@ -376,14 +367,14 @@
      ]
     },
     {
-     "id": 38,
+     "id": 37,
      "name": "characters",
      "symbols": [
       "character"
      ]
     },
     {
-     "id": 39,
+     "id": 38,
      "name": "characters",
      "symbols": [
       "character",
@@ -391,14 +382,14 @@
      ]
     },
     {
-     "id": 40,
+     "id": 39,
      "name": "character",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 41,
+     "id": 40,
      "name": "character",
      "symbols": [
       {
@@ -408,7 +399,7 @@
      ]
     },
     {
-     "id": 42,
+     "id": 41,
      "name": "escape",
      "symbols": [
       {
@@ -417,7 +408,7 @@
      ]
     },
     {
-     "id": 43,
+     "id": 42,
      "name": "escape",
      "symbols": [
       {
@@ -426,7 +417,7 @@
      ]
     },
     {
-     "id": 44,
+     "id": 43,
      "name": "escape",
      "symbols": [
       {
@@ -435,7 +426,7 @@
      ]
     },
     {
-     "id": 45,
+     "id": 44,
      "name": "escape",
      "symbols": [
       {
@@ -444,7 +435,7 @@
      ]
     },
     {
-     "id": 46,
+     "id": 45,
      "name": "escape",
      "symbols": [
       {
@@ -453,7 +444,7 @@
      ]
     },
     {
-     "id": 47,
+     "id": 46,
      "name": "escape",
      "symbols": [
       {
@@ -462,7 +453,7 @@
      ]
     },
     {
-     "id": 48,
+     "id": 47,
      "name": "escape",
      "symbols": [
       {
@@ -471,7 +462,7 @@
      ]
     },
     {
-     "id": 49,
+     "id": 48,
      "name": "escape",
      "symbols": [
       {
@@ -480,7 +471,7 @@
      ]
     },
     {
-     "id": 50,
+     "id": 49,
      "name": "escape",
      "symbols": [
       {
@@ -493,7 +484,7 @@
      ]
     },
     {
-     "id": 51,
+     "id": 50,
      "name": "hex",
      "symbols": [
       {
@@ -502,14 +493,14 @@
      ]
     },
     {
-     "id": 52,
+     "id": 51,
      "name": "hex",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 53,
+     "id": 52,
      "name": "cNull",
      "symbols": [
       {
@@ -518,7 +509,7 @@
      ]
     },
     {
-     "id": 54,
+     "id": 53,
      "name": "boolean",
      "symbols": [
       {
@@ -527,7 +518,7 @@
      ]
     },
     {
-     "id": 55,
+     "id": 54,
      "name": "boolean",
      "symbols": [
       {
@@ -536,7 +527,7 @@
      ]
     },
     {
-     "id": 56,
+     "id": 55,
      "name": "number",
      "symbols": [
       {
@@ -545,7 +536,7 @@
      ]
     },
     {
-     "id": 57,
+     "id": 56,
      "name": "rparan",
      "symbols": [
       {
@@ -554,7 +545,7 @@
      ]
     },
     {
-     "id": 58,
+     "id": 57,
      "name": "lparan",
      "symbols": [
       {
@@ -563,7 +554,7 @@
      ]
     },
     {
-     "id": 59,
+     "id": 58,
      "name": "plus",
      "symbols": [
       {
@@ -572,7 +563,7 @@
      ]
     },
     {
-     "id": 60,
+     "id": 59,
      "name": "minus",
      "symbols": [
       {
@@ -581,7 +572,7 @@
      ]
     },
     {
-     "id": 61,
+     "id": 60,
      "name": "times",
      "symbols": [
       {
@@ -590,7 +581,7 @@
      ]
     },
     {
-     "id": 62,
+     "id": 61,
      "name": "divide",
      "symbols": [
       {
@@ -599,7 +590,7 @@
      ]
     },
     {
-     "id": 63,
+     "id": 62,
      "name": "semicolon",
      "symbols": [
       {
@@ -608,7 +599,7 @@
      ]
     },
     {
-     "id": 64,
+     "id": 63,
      "name": "equals",
      "symbols": [
       {
@@ -617,19 +608,19 @@
      ]
     },
     {
-     "id": 65,
+     "id": 64,
      "name": "nonDigit",
      "symbols": [
       {}
      ]
     },
     {
-     "id": 66,
+     "id": 65,
      "name": "_$ebnf$1",
      "symbols": []
     },
     {
-     "id": 67,
+     "id": 66,
      "name": "_$ebnf$1",
      "symbols": [
       "_$ebnf$1",
@@ -639,10 +630,19 @@
      ]
     },
     {
-     "id": 68,
+     "id": 67,
      "name": "_",
      "symbols": [
       "_$ebnf$1"
+     ]
+    },
+    {
+     "id": 68,
+     "name": "identifier",
+     "symbols": [
+      {
+       "type": "identifier"
+      }
      ]
     }
    ],
@@ -695,9 +695,6 @@
      null,
      null,
      null,
-     null
-    ],
-    "identifier": [
      null
     ],
     "array": [
@@ -777,6 +774,9 @@
     ],
     "_": [
      null
+    ],
+    "identifier": [
+     null
     ]
    },
    "lexer": {
@@ -828,29 +828,29 @@
         "type": null,
         "shouldThrow": false,
         "match": [
-         "continue",
-         "register",
          "volatile",
+         "register",
+         "continue",
          "default",
          "typedef",
-         "extern",
-         "return",
-         "sizeof",
-         "static",
-         "struct",
          "switch",
-         "break",
+         "struct",
+         "static",
+         "sizeof",
+         "return",
+         "extern",
          "const",
-         "union",
+         "break",
          "while",
+         "union",
+         "void",
+         "goto",
          "then",
          "else",
-         "auto",
-         "case",
-         "else",
          "enum",
-         "goto",
-         "void",
+         "else",
+         "case",
+         "auto",
          "for",
          "if",
          "do",
@@ -1411,6 +1411,7 @@
    {
     "dot": 1,
     "reference": 0,
+    "data": "whitespace",
     "isComplete": true
    },
    {
@@ -1571,15 +1572,7 @@
    {
     "dot": 1,
     "reference": 0,
-    "data": {
-     "type": "identifier",
-     "value": "a",
-     "text": "a",
-     "offset": 0,
-     "lineBreaks": 0,
-     "line": 1,
-     "col": 1
-    },
+    "data": "identifier",
     "isComplete": true
    },
    {
@@ -1591,6 +1584,7 @@
    {
     "dot": 1,
     "reference": 0,
+    "data": "identifier",
     "isComplete": true
    },
    {
@@ -1621,6 +1615,7 @@
    {
     "dot": 1,
     "reference": 1,
+    "data": "whitespace",
     "isComplete": true
    },
    {
@@ -1695,6 +1690,7 @@
    {
     "dot": 1,
     "reference": 1,
+    "data": "whitespace",
     "isComplete": true
    },
    {
@@ -1734,15 +1730,7 @@
    {
     "dot": 1,
     "reference": 2,
-    "data": {
-     "type": "equals",
-     "value": "=",
-     "text": "=",
-     "offset": 2,
-     "lineBreaks": 0,
-     "line": 1,
-     "col": 3
-    },
+    "data": "equals",
     "isComplete": true
    },
    {
@@ -1779,6 +1767,7 @@
    {
     "dot": 1,
     "reference": 3,
+    "data": "whitespace",
     "isComplete": true
    },
    {
@@ -1950,6 +1939,7 @@
    {
     "dot": 1,
     "reference": 3,
+    "data": "whitespace",
     "isComplete": true
    },
    {
@@ -2086,20 +2076,13 @@
    {
     "dot": 1,
     "reference": 4,
-    "data": {
-     "type": "number",
-     "value": "3",
-     "text": "3",
-     "offset": 4,
-     "lineBreaks": 0,
-     "line": 1,
-     "col": 5
-    },
+    "data": "number",
     "isComplete": true
    },
    {
     "dot": 1,
     "reference": 4,
+    "data": "number",
     "isComplete": true
    },
    {
@@ -2150,6 +2133,7 @@
       "right": {
        "dot": 2,
        "reference": 4,
+       "data": "number",
        "isComplete": true
       }
      }
@@ -2175,6 +2159,7 @@
    {
     "dot": 1,
     "reference": 5,
+    "data": "whitespace",
     "isComplete": true
    },
    {
@@ -2251,12 +2236,12 @@
     "data": {
      "type": "attribution",
      "data": [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
+      "identifier",
+      "whitespace",
+      "equals",
+      "whitespace",
+      "number",
+      "whitespace"
      ]
     },
     "isComplete": true
@@ -2265,7 +2250,18 @@
     "dot": 1,
     "reference": 0,
     "data": [
-     null
+     null,
+     {
+      "a": {
+       "type": "identifier",
+       "value": "a",
+       "text": "a",
+       "offset": 0,
+       "lineBreaks": 0,
+       "line": 1,
+       "col": 1
+      }
+     }
     ],
     "isComplete": true
    }

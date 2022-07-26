@@ -4,12 +4,13 @@
 function id(x) { return x[0]; }
 
 const tokens = require('./tokens.js')
+const symbolTable = {}
 var grammar = {
     Lexer: tokens,
     ParserRules: [
     {"name": "input", "symbols": ["_", "value", "_"], "postprocess": (data) => data[1]},
     {"name": "input", "symbols": ["identifier"], "postprocess": id},
-    {"name": "input", "symbols": ["attribution"]},
+    {"name": "input", "symbols": ["attribution"], "postprocess": (data) => [data[0], symbolTable]},
     {"name": "input", "symbols": ["declaration"]},
     {"name": "input", "symbols": ["keyword"], "postprocess": id},
     {"name": "input", "symbols": ["additive"], "postprocess": id},
@@ -126,7 +127,6 @@ var grammar = {
     {"name": "value", "symbols": [(tokens.has("string") ? {type: "string"} : string)], "postprocess": id},
     {"name": "value", "symbols": ["array"], "postprocess": id},
     {"name": "value", "symbols": ["cNull"], "postprocess": id},
-    {"name": "identifier", "symbols": [(tokens.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
     {"name": "array", "symbols": [{"literal":"["}, "_", "array_items", "_", {"literal":"]"}], "postprocess": (data) => data[2]},
     {"name": "array", "symbols": [{"literal":"["}, "_", {"literal":"]"}], "postprocess": () => []},
     {"name": "array_items", "symbols": ["value"], "postprocess": (data) => [data[0]]},
@@ -166,19 +166,26 @@ var grammar = {
     {"name": "cNull", "symbols": [(tokens.has("cNull") ? {type: "cNull"} : cNull)], "postprocess": () => null},
     {"name": "boolean", "symbols": [(tokens.has("boolean_true") ? {type: "boolean_true"} : boolean_true)], "postprocess": () => true},
     {"name": "boolean", "symbols": [(tokens.has("boolean_false") ? {type: "boolean_false"} : boolean_false)], "postprocess": () => false},
-    {"name": "number", "symbols": [(tokens.has("number") ? {type: "number"} : number)], "postprocess": id},
-    {"name": "rparan", "symbols": [(tokens.has("rparan") ? {type: "rparan"} : rparan)], "postprocess": id},
-    {"name": "lparan", "symbols": [(tokens.has("lparan") ? {type: "lparan"} : lparan)], "postprocess": id},
-    {"name": "plus", "symbols": [(tokens.has("plus") ? {type: "plus"} : plus)], "postprocess": id},
-    {"name": "minus", "symbols": [(tokens.has("minus") ? {type: "minus"} : minus)], "postprocess": id},
-    {"name": "times", "symbols": [(tokens.has("times") ? {type: "times"} : times)], "postprocess": id},
-    {"name": "divide", "symbols": [(tokens.has("divide") ? {type: "divide"} : divide)], "postprocess": id},
-    {"name": "semicolon", "symbols": [(tokens.has("semicolon") ? {type: "semicolon"} : semicolon)], "postprocess": id},
-    {"name": "equals", "symbols": [(tokens.has("equals") ? {type: "equals"} : equals)], "postprocess": id},
-    {"name": "nonDigit", "symbols": [/[a-zA-Z_]/], "postprocess": id},
+    {"name": "number", "symbols": [(tokens.has("number") ? {type: "number"} : number)], "postprocess": data => data[0].type},
+    {"name": "rparan", "symbols": [(tokens.has("rparan") ? {type: "rparan"} : rparan)], "postprocess": data => data[0].type},
+    {"name": "lparan", "symbols": [(tokens.has("lparan") ? {type: "lparan"} : lparan)], "postprocess": data => data[0].type},
+    {"name": "plus", "symbols": [(tokens.has("plus") ? {type: "plus"} : plus)], "postprocess": data => data[0].type},
+    {"name": "minus", "symbols": [(tokens.has("minus") ? {type: "minus"} : minus)], "postprocess": data => data[0].type},
+    {"name": "times", "symbols": [(tokens.has("times") ? {type: "times"} : times)], "postprocess": data => data[0].type},
+    {"name": "divide", "symbols": [(tokens.has("divide") ? {type: "divide"} : divide)], "postprocess": data => data[0].type},
+    {"name": "semicolon", "symbols": [(tokens.has("semicolon") ? {type: "semicolon"} : semicolon)], "postprocess": data => data[0].type},
+    {"name": "equals", "symbols": [(tokens.has("equals") ? {type: "equals"} : equals)], "postprocess": data => data[0].type},
+    {"name": "nonDigit", "symbols": [/[a-zA-Z_]/], "postprocess": data => data[0].type},
     {"name": "_$ebnf$1", "symbols": []},
     {"name": "_$ebnf$1", "symbols": ["_$ebnf$1", (tokens.has("whitespace") ? {type: "whitespace"} : whitespace)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "_", "symbols": ["_$ebnf$1"], "postprocess": id}
+    {"name": "_", "symbols": ["_$ebnf$1"], "postprocess": () => "whitespace"},
+    {"name": "identifier", "symbols": [(tokens.has("identifier") ? {type: "identifier"} : identifier)], "postprocess":  
+        data => {
+            const identifierInfo = data[0]
+            symbolTable[identifierInfo.value] = data[0]
+            return identifierInfo.type
+        } 
+        }
 ]
   , ParserStart: "input"
 }

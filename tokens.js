@@ -24,6 +24,7 @@ const mooLex = moo.compile({
     minus: '-',
     semicolon: ';',
     equals: '=',
+    digit: /[0-9]/,
     number: /(?:(?:[+-])?[0-9]*[.])?[0-9]+/,
     string: /"(?:[^"\\]|\\.)*"/,
     comment: /\/\/.*/,

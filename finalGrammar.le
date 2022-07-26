@@ -1,0 +1,79 @@
+@{%
+const tokens = require('./tokens.js')
+const symbolTable = {}
+%}
+
+@lexer tokens
+
+
+program 
+    -> statement:?
+    | funclist:?
+
+funclist 
+    -> funcdef funclist 
+    | funcdef
+
+funcdef -> "def" _ identifier _ "(" _ paramlist _ ")" _ "{" _ statelist _ "}" _
+
+paramlist -> 
+    (( int | float | string ) identifier "," paramlist 
+    |( int | float | string ) identifier):?
+
+statement ->
+     vardecl %semicolon 
+     | atribstat %semicolon 
+     | printstat %semicolon 
+     | readstat %semicolon 
+     | returnstat %semicolon 
+     | ifstat 
+     | forstat 
+     | "{" statelist "}" 
+     | break %semicolon 
+     |  %semicolon
+
+vardecl -> (int|float|string) %identifier ("[" %digit "]"):*
+
+atribstat -> lvalue equals ( expression | allocexpression | funccall)
+
+funccall -> %identifier(paramlistcall)
+
+paramlistcall -> (%identifier, paramlistcall | %identifier):?
+
+printstat -> print expression
+
+readstat -> read lvalue
+
+returnstat -> return
+
+ifstat -> if( expression ) statement (else statement):?
+
+forstat -> for(atribstat %semicolon expression %semicolon atribstat)
+statement
+
+statelist -> statement(statelist):?
+
+allocexpression -> new (int | float | string) ([ numexpression ]):+
+
+expression -> numexpression(( < | > | <= | >= | == | ! =)numexpression):?
+
+numexpression -> term ((+ |−) term):∗
+
+term -> unaryexpr(( ∗ | / | %) unaryexpr):∗
+
+unaryexpr -> ((+ |−)):? factor
+
+factor -> (int constant | float constant | string constant | null | lvalue |(numexpression))
+
+lvalue -> identifier( [ numexpression ] ):*
+
+_ -> %whitespace:* {% () => "whitespace" %}
+
+identifier -> %identifier 
+    {% 
+    data => {
+        const identifierInfo = data[0]
+        symbolTable[identifierInfo.value] = data[0]
+        return identifierInfo.type
+    } 
+    %}
