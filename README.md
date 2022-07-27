@@ -1,4 +1,5 @@
 O analisador léxico-sintático foi construído utilizando Javascript, é necessário instalar o NodeJS com o script install.sh, que irá instalar o Node JS, e as dependências do projeto:
+O script necessita utilizar sudo para baixar o curl pelo apt, então provavelmente pedirá sua senha.
 
 ./install.sh
 
