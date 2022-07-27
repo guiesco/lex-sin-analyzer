@@ -17,7 +17,6 @@ async function main() {
         const table = parser.table
 
         await fs.writeFile("result.json", JSON.stringify(parserResults, null, " "))
-        await fs.writeFile("parserTable.json", JSON.stringify(table, getCircularReplacer(), " "))
     } catch (e) {
         console.log("parse error", e.message)
     }

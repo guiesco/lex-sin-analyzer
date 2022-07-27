@@ -1,115 +1,150 @@
 @{%
 const tokens = require('./tokens.js')
 const symbolTable = {}
+
+const normalizeData = (data) => {
+    const returnData = []
+    data.forEach(function(token) {
+        if (!token) return;
+        if (typeof token.type === "string") {
+            returnData.push(token.type)
+        } else if(Array.isArray(token)) {
+            returnData.push(...token)
+        } else {
+            returnData.push(token)
+        }
+    })
+    return returnData
+}
 %}
 
 @lexer tokens
 
 program 
-    -> statement:? {% id %}
-    | funclist:? {% id %}
+    -> statement:? {% (data) => [data[0], symbolTable] %}
+    | funclist:? {% (data) => [data[0], symbolTable] %}
 
 funclist 
-    -> funcdef funclist {% data => data.join("") %}
+    -> funcdef funclist {% data => normalizeData(data) %}
     | funcdef {% id %}
 
-funcdef -> %def _ identifier _ %lparan _ paramlist _ %rparan _ NL _ %lbrace _ NL _ statelist _ NL _ %rbrace _
-    {% data => {
-        const returnData = []
-        data.forEach(function(token) {
-            if (typeof token.type === "string") {
-                returnData.push(token.type)
-            } else if(Array.isArray(token)) {
-                returnData.push(...token)
-            } else {
-                returnData.push(token)
-            }
-        })
-        return returnData
-    } %}
+funcdef -> %def _ identifier _ %lparan _ paramlist:? _ %rparan NL _ %lbrace NL _ statelist NL _ %rbrace NL _
+    {% data => normalizeData(data) %}
 
 paramlist 
-    -> %type_keyword _ identifier _ %comma _ paramlist 
-    {% data => {
-        data[0] = data[0].value
-        data[4] = data[4].value
-        if(Array.isArray(data[6])) {
-            data.push(...data[6])
-            data.splice(6, 1)
-        }
-        return data
-    } %}
-    | %type_keyword _ identifier:? 
-    {% data => {
-        data[0] = data[0].value
-        return data
-    } %}
+    -> type_keyword _ identifier _ %comma _ paramlist 
+        {% data => normalizeData(data) %}
+    | type_keyword _ identifier:? 
+        {% data => normalizeData(data) %}
 
-statelist -> statement statelist:? 
-    {% id %}
+statelist 
+    -> statement statelist:? 
+        {% data => normalizeData(data) %}
 
 statement ->
-     vardecl %semicolon NL {% id %}
-     | atribstat %semicolon NL {% id %}
-     | printstat %semicolon NL {% id %}
-     | readstat %semicolon NL {% id %}
-     | returnstat %semicolon NL {% id %}
-     | ifstat {% id %}
-     | forstat {% id %}
-     | %lbrace statelist %rbrace {% id %}
-     | "break" %semicolon NL {% id %}
-     | %semicolon NL {% id %}
+     _ vardecl %semicolon NL
+        {% data => normalizeData(data) %}
+     | _ atribstat %semicolon NL
+        {% data => normalizeData(data) %}
+     | _ printstat %semicolon NL
+        {% data => normalizeData(data) %}
+     | _ readstat %semicolon NL
+        {% data => normalizeData(data) %}
+     | _ returnstat %semicolon NL
+        {% data => normalizeData(data) %}
+     | _ ifstat NL
+        {% data => normalizeData(data) %}
+     | _ forstat NL
+        {% data => normalizeData(data) %}
+     | _ %lbrace NL statelist _ %rbrace NL
+        {% data => normalizeData(data) %}
+     | _ "break" %semicolon NL
+        {% data => normalizeData(data) %}
+     | _ %semicolon NL
+        {% data => normalizeData(data) %}
 
 vardecl 
-    -> %type_keyword _ %identifier _ (%lbracket %digit %rbracket):* {% id %}
-    | %type_keyword _ atribstat {% id %}
+    -> type_keyword _ identifier _ (%lbracket %digit %rbracket):* 
+        {% data => {
+            data[4] = normalizeData(normalizeData(data[4]))
+            return normalizeData(data)} %}
+    | type_keyword _ atribstat 
+        {% data => {
+            return normalizeData(data)
+        } %}
 
-atribstat -> lvalue _ %equals _ ( expression | allocexpression | funccall)
+atribstat 
+    -> lvalue %equals _ expression
+        {% data => normalizeData(data) %}
+    | lvalue %equals _ allocexpression 
+        {% data => normalizeData(data) %}
+    | lvalue %equals _ funccall
+        {% data => normalizeData(data) %}
 
-funccall -> identifier %lparan paramlistcall %rparan
+funccall -> identifier _ %lparan _ paramlistcall _ %rparan {% data => normalizeData(data) %}
 
-paramlistcall -> (identifier %comma paramlistcall | identifier):?
+paramlistcall -> (identifier _ %comma _ paramlistcall _ | identifier):? {% data => normalizeData(normalizeData(data)) %}
 
-printstat -> "print" expression
+printstat -> "print" _ expression {% data => normalizeData(data) %}
 
-readstat -> "read" lvalue
+readstat -> "read" _ lvalue {% data => normalizeData(data) %}
 
-returnstat -> "return"
+returnstat -> _ "return" _ {% data => data[1] = data[1].value %}
 
-ifstat -> "if" %lparan expression %rparan statement ("else" statement):?
+ifstat -> "if" _ %lparan _ expression _ %rparan _ statement (_ "else" _ statelist):? {% data => normalizeData(data) %}
 
-forstat -> "for" %lparan atribstat %semicolon expression %semicolon atribstat %rparan
+forstat -> "for" _ %lparan atribstat %semicolon expression %semicolon atribstat %rparan 
 statement
 
-allocexpression -> "new" %type_keyword (%lbracket numexpression %rbracket):+
+allocexpression -> "new" _ type_keyword (%lbracket numexpression %rbracket):+ {% data => normalizeData(data) %}
 
-expression -> numexpression (( %minor | %major | %minor_or_equal | %major_or_equal | %equal_equal | %not_equal ) numexpression):?
+expression 
+    -> numexpression 
+        {% data => normalizeData(data) %}
+    | numexpression %compare_keyword numexpression
+        {% data => normalizeData(data) %}
 
-numexpression -> term ((%plus | %minus) term):*
+numexpression 
+    -> term
+        {% data => normalizeData(data) %}
+    | term _ (%plus | %minus) _ numexpression
+        {% data => {
+            data[2] = data[2][0].type
+            return normalizeData(data)
+        } %}    
 
-term -> unaryexpr (( %times | %divide | %percentage) unaryexpr):*
+term -> unaryexpr _ (( %times | %divide | %percentage) _ unaryexpr):* 
+    {% data => {
+        data[2] = normalizeData(normalizeData(normalizeData(data[2])))
+        return normalizeData(data)
+    } %}
 
-unaryexpr -> ((%plus | %minus)):? factor
+unaryexpr -> ((%plus | %minus)):? _ factor {% data => normalizeData(data) %}
 
 factor 
     -> %number {% id %}
     | %digit {% id %}
     | %string {% id %}
     | null {% () => null %}
-    | lvalue {% id %}
-    | %lparan numexpression %rparan 
+    | lvalue {% data => normalizeData(data) %}
+    | %lparan numexpression %rparan {% data => normalizeData(data) %}
 
-lvalue -> identifier ( %lbracket numexpression %rbracket ):* {% id %}
+lvalue -> identifier _ ( %lbracket numexpression %rbracket _):* 
+    {% data => {
+        data[2] = normalizeData(normalizeData(data[2]))
+    return normalizeData(data)} %}
 
-_ -> %whitespace:* {% () => "whitespace" %}
+_ -> %whitespace:* {% data => data[0][0] ? 'WS' : '' %}
 
-NL -> %NL:* {% () => "newline" %}
+NL -> %NL:* {% () => "NL" %}
+
+type_keyword -> %type_keyword {% (data) => data[0].value %}
 
 identifier -> %identifier 
     {% 
-    data => {
-        const identifierInfo = data[0]
-        symbolTable[identifierInfo.value] = data[0]
-        return identifierInfo.type
-    } 
+        data => {
+            const identifierInfo = data[0]
+            symbolTable[identifierInfo.value] = data[0]
+            return identifierInfo.type
+        } 
     %}
