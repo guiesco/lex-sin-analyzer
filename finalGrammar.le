@@ -58,13 +58,13 @@ statement ->
         {% data => normalizeData(data) %}
      | _ %lbrace NL statelist _ %rbrace NL
         {% data => normalizeData(data) %}
-     | _ "break" %semicolon NL
+     | _ "break" _ %semicolon NL
         {% data => normalizeData(data) %}
      | _ %semicolon NL
         {% data => normalizeData(data) %}
 
 vardecl 
-    -> type_keyword _ identifier _ (%lbracket %digit %rbracket):* 
+    -> type_keyword _ identifier _ (%lbracket %int %rbracket):* 
         {% data => {
             data[4] = normalizeData(normalizeData(data[4]))
             return normalizeData(data)} %}
@@ -74,16 +74,12 @@ vardecl
         } %}
 
 atribstat 
-    -> lvalue %equals _ expression
-        {% data => normalizeData(data) %}
-    | lvalue %equals _ allocexpression 
-        {% data => normalizeData(data) %}
-    | lvalue %equals _ funccall
-        {% data => normalizeData(data) %}
+    -> lvalue (%equals _ (expression | allocexpression | funccall)):?
+        {% data => normalizeData(normalizeData(normalizeData(data))) %}
 
 funccall -> identifier _ %lparan _ paramlistcall _ %rparan {% data => normalizeData(data) %}
 
-paramlistcall -> (identifier _ %comma _ paramlistcall _ | identifier):? {% data => normalizeData(normalizeData(data)) %}
+paramlistcall -> (identifier _ %comma _ paramlistcall _ | identifier):? {% data => normalizeData(data[0]) %}
 
 printstat -> "print" _ expression {% data => normalizeData(data) %}
 
@@ -93,10 +89,9 @@ returnstat -> _ "return" _ {% data => data[1] = data[1].value %}
 
 ifstat -> "if" _ %lparan _ expression _ %rparan _ statement (_ "else" _ statelist):? {% data => normalizeData(data) %}
 
-forstat -> "for" _ %lparan atribstat %semicolon expression %semicolon atribstat %rparan 
-statement
+forstat -> "for" _ %lparan _ vardecl _ %semicolon _ expression _ %semicolon _ atribstat _ %rparan _ statement {% data => normalizeData(data) %}
 
-allocexpression -> "new" _ type_keyword (%lbracket numexpression %rbracket):+ {% data => normalizeData(data) %}
+allocexpression -> "new" _ type_keyword (%lbracket numexpression %rbracket):+ {% data => normalizeData(normalizeData(normalizeData(data))) %}
 
 expression 
     -> numexpression 
@@ -122,21 +117,22 @@ term -> unaryexpr _ (( %times | %divide | %percentage) _ unaryexpr):*
 unaryexpr -> ((%plus | %minus)):? _ factor {% data => normalizeData(data) %}
 
 factor 
-    -> %number {% id %}
-    | %digit {% id %}
+    -> %float {% id %}
+    | %int {% id %}
     | %string {% id %}
     | null {% () => null %}
     | lvalue {% data => normalizeData(data) %}
     | %lparan numexpression %rparan {% data => normalizeData(data) %}
 
-lvalue -> identifier _ ( %lbracket numexpression %rbracket _):* 
+lvalue -> identifier _ ( %lbracket %int %rbracket _):* 
     {% data => {
         data[2] = normalizeData(normalizeData(data[2]))
-    return normalizeData(data)} %}
+        return normalizeData(data)
+    } %}
 
 _ -> %whitespace:* {% data => data[0][0] ? 'WS' : '' %}
 
-NL -> %NL:* {% () => "NL" %}
+NL -> %NL:* {% data => data[0][0] ? 'NL' : '' %}
 
 type_keyword -> %type_keyword {% (data) => data[0].value %}
 

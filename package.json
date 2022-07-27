@@ -6,7 +6,7 @@
   "scripts": {
     "build": "nearleyc grammar.le -o grammar.js",
     "build:final": "nearleyc finalGrammar.le -o finalGrammar.js",
-    "test": "nearley-test -i 'string' csscolor.js"
+    "test": "node parse\\ copy.js --max-old-space-size=2048"
   },
   "repository": {
     "type": "git",
