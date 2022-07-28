@@ -7,6 +7,7 @@ const mooLex = moo.compile({
     type_keyword: ['int', 'bool', 'float', 'string'],
     boolean: ['true', 'false'],
     identifier: /[a-zA-Z_][a-zA-Z0-9_]*/,
+    bool_compare: ['||', '&&'],
     compare_keyword: ['<', '>', '<=', '>=', '!=', '=='],
     string: /"(?:[^"\\]|\\.)*"/,
     float: /(?:[0-9]*)?[.][0-9]+/,

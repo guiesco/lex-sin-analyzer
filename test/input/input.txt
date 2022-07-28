@@ -1,0 +1,25 @@
+def main(int B, float C) {
+    int A [4];
+    A[0] = B + C;
+    A[1] = A[0] * B;
+    A[2] = A[0] * C;
+    A[3] = (A[0] + A[1] - A[2]) * B / C;
+    bool result1;
+    bool result2;
+    result1 = func1(A);
+    result2 = func2(B);
+    return result1 && result2 || result3;
+}
+
+def func1(int A) {
+    bool result = A[2] > 2;
+    return result;
+}
+
+def func2(int A) {
+    bool result = false;
+    if(A[3] > 10) {
+        result = true;
+    }
+    return result;
+}

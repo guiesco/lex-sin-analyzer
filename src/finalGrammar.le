@@ -1,0 +1,144 @@
+@{%
+const tokens = require('./tokens.js')
+const symbolTable = {}
+
+const normalizeData = (data) => {
+    const returnData = []
+    if (!data) return 
+    if(!Array.isArray(data)) return
+    data.forEach(function(token) {
+        if (!token) return;
+        if (typeof token.type === "string") {
+            returnData.push(token.type)
+        } else if(Array.isArray(token)) {
+            returnData.push(...token)
+        } else {
+            returnData.push(token)
+        }
+    })
+    return returnData
+}
+%}
+
+@lexer tokens
+
+program 
+    -> statement:? {% (data) => ({tokens: data[0], symbolTable}) %}
+    | funclist:? {% (data) => ({tokens: data[0], symbolTable}) %}
+
+funclist -> funcdef funclist:? {% normalizeData %}
+
+funcdef -> %def _ identifier _ %lparan _ paramlist:? _ %rparan NL _ %lbrace NL _ statelist NL _ %rbrace NL _
+    {% normalizeData %}
+
+paramlist 
+    -> type_keyword _ identifier ( _ %comma _ paramlist):?
+        {% data => {
+            return normalizeData(normalizeData(data))
+        }
+         %}
+
+statelist 
+    -> statement _ statelist:? 
+        {% normalizeData %}
+
+statement ->
+     vardecl %semicolon NL
+        {% normalizeData %}
+     | atribstat %semicolon NL
+        {% normalizeData %}
+     | printstat %semicolon NL
+        {% normalizeData %}
+     | readstat %semicolon NL
+        {% normalizeData %}
+     | returnstat expression:? %semicolon NL
+        {% normalizeData %}
+     | ifstat NL
+        {% normalizeData %}
+     | forstat NL
+        {% normalizeData %}
+     | %lbrace NL _ statelist _ %rbrace NL
+        {% normalizeData %}
+     | "break" _ %semicolon NL
+        {% normalizeData %}
+     | %semicolon NL
+        {% normalizeData %}
+
+vardecl 
+    -> type_keyword _ atribstat:?
+        {% normalizeData %}
+
+atribstat 
+    -> lvalue (%equals _ (expression | funccall)):?
+        {% data => {
+            if(Array.isArray(data[1])){
+                data[1][2] = data[1][2][0]
+                data = [data[0], data[1][0], data[1][1], data[1][2]]
+            }
+            return normalizeData(data) }
+        %}
+
+
+funccall -> lvalue _ %lparan _ paramlistcall _ %rparan {% normalizeData %}
+
+paramlistcall -> (lvalue _ %comma _ paramlistcall _ | lvalue):? {% data => normalizeData(data[0]) %}
+
+printstat -> "print" _ expression {% normalizeData %}
+
+readstat -> "read" _ lvalue {% normalizeData %}
+
+returnstat -> "return" _ {% data => data[1] = data[1].value %}
+
+ifstat -> "if" _ %lparan _ expression _ %rparan _ statement (_ "else" _ statelist):? {% normalizeData %}
+
+forstat -> "for" _ %lparan _ vardecl _ %semicolon _ expression _ %semicolon _ atribstat _ %rparan _ statement {% normalizeData %}
+
+expression 
+    -> numexpression (_ %compare_keyword _ numexpression):?
+        {% data => {
+            return normalizeData(normalizeData(data))
+        } %}
+
+numexpression 
+    -> term (_ (%plus | %minus | %bool_compare) _ numexpression):*
+        {% data => {
+            return normalizeData(normalizeData(data))
+        } %}    
+
+term -> unaryexpr (_ ( %times | %divide | %percentage) _ unaryexpr):* 
+    {% data => {
+        data[1] = normalizeData(normalizeData(normalizeData(data[1])))
+        return normalizeData(data)
+    } %}
+
+unaryexpr -> ((%plus | %minus) _ ):?  factor {% normalizeData %}
+
+factor 
+    -> %float {% normalizeData %}
+    | %int {% normalizeData %}
+    | %string {% normalizeData %}
+    | %boolean {% normalizeData %}
+    | null {% () => null %}
+    | lvalue {% normalizeData %}
+    | %lparan numexpression %rparan {% normalizeData %}
+
+lvalue -> identifier _ ( %lbracket numexpression %rbracket _):* 
+    {% data => {
+        data[2] = normalizeData(data[2][0])
+        return normalizeData(data)
+    } %}
+
+_ -> %whitespace:* {% data => data[0][0] ? 'WS' : '' %}
+
+NL -> %NL:* {% data => data[0][0] ? 'NL' : '' %}
+
+type_keyword -> %type_keyword {% (data) => data[0].value %}
+
+identifier -> %identifier 
+    {% 
+        data => {
+            const identifierInfo = data[0]
+            symbolTable[identifierInfo.value] = data[0]
+            return identifierInfo.type
+        } 
+    %}

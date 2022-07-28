@@ -1,5 +1,0 @@
-def principal ()
-{
-    int A = (3+2.35) * 3;
-    return ;
-}
