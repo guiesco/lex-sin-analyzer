@@ -6,10 +6,12 @@ funclist ::= funcdef funclisttail
 funclisttail ::= funclist
 funclisttail ::= ''
 
-funcdef ::= %def _ identifier _ %lparan _ paramlist:? _ %rparan NL _ %lbrace NL _ statelist NL _ %rbrace NL _
+funcdef ::= %def _ identifier _ %lparan _ funcdef2 _ %rparan NL _ %lbrace NL _ statelist NL _ %rbrace NL _
+funcdef2 ::= ''
+funcdef2 ::= paramlist
 
-paramlist ::= type_keyword _ identifier paramlisttail
-paramlisttail ::= _ %comma _ paramlist
+paramlist ::= type_keyword _ identifier _ paramlisttail
+paramlisttail ::= %comma _ paramlist
 paramlisttail ::= ''
 
 statelist ::= statement _ statelisttail
@@ -101,10 +103,10 @@ bracketexp ::= %lbracket numexpression %rbracket bracketexp2
 bracketexp2 ::= ''
 bracketexp2 ::= bracketexp
 
-_ ::= %whitespace:* 
+_ ::= %whitespace
 
-NL ::= %NL:* 
+NL ::= %NL
 
 type_keyword ::= %type_keyword 
 
-identifier ::= %identifier 
+identifier ::= %id
