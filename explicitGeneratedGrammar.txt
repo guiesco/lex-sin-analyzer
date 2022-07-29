@@ -1,0 +1,110 @@
+program ::= statement 
+program ::= funclist
+program ::= ''
+
+funclist ::= funcdef funclisttail
+funclisttail ::= funclist
+funclisttail ::= ''
+
+funcdef ::= %def _ identifier _ %lparan _ paramlist:? _ %rparan NL _ %lbrace NL _ statelist NL _ %rbrace NL _
+
+paramlist ::= type_keyword _ identifier paramlisttail
+paramlisttail ::= _ %comma _ paramlist
+paramlisttail ::= ''
+
+statelist ::= statement _ statelisttail
+statelisttail ::= statelist
+statelisttail ::= ''  
+
+statement ::= vardecl %semicolon NL
+statement ::=  atribstat %semicolon NL
+statement ::=  printstat %semicolon NL
+statement ::=  readstat %semicolon NL
+statement ::=  returnstat expression:? %semicolon NL
+statement ::=  ifstat NL
+statement ::=  forstat NL
+statement ::=  %lbrace NL _ statelist _ %rbrace NL
+statement ::=  "break" _ %semicolon NL
+statement ::=  %semicolon NL
+        
+vardecl ::= type_keyword _ vardecltail
+vardecltail ::= atribstat
+vardecltail ::= '' 
+
+atribstat ::= lvalue atribstattail
+atribstattail ::= %equals _ atribtail2
+atribstattail ::= ''
+atribtail2 ::= expression
+
+
+paramlistcall ::= paramlistcallt _ paramlistcallt2
+paramlistcallt ::= lvalue
+paramlistcallt ::= ''
+paramlistcallt2 ::=  %comma _ paramlistcall _ 
+paramlistcallt2 ::= ''
+
+printstat ::= "print" _ expression 
+readstat ::= "read" _ lvalue 
+returnstat ::= "return" _ 
+
+ifstat ::= "if" _ %lparan _ expression _ %rparan _ statement
+ifstata ::= ifstatb
+isftata ::= ''
+ifstatb ::= _ "else" _ statelist
+
+forstat ::= "for" _ %lparan _ vardecl _ %semicolon _ expression _ %semicolon _ atribstat _ %rparan _ statement 
+
+expression ::= numexpression exp2
+exp2 ::= exp3
+exp2 ::= ''
+exp3 ::= %compare_keyword _ numexpression
+
+numexpression ::= term  numex2
+numex2 ::= numex3
+numex2 ::= ''
+numex3 ::= numex4 _ numexpression
+numex4 ::= %plus
+numex4 ::= %minus
+numex4 ::= %bool_compare
+
+term ::= unaryexpr term2
+term2 ::= ''
+term2 ::= term3
+term3 ::= term4 _ term
+term4 ::= %times
+term4 ::= %divide
+term4 ::= %percentage
+
+unaryexpr ::= unary2 factor
+unary2 ::= ''
+unary2 ::= unary3
+unary3 ::= unary4 _
+unary4 ::= %plus
+unary4 ::= %minus
+
+factor ::= %float 
+factor ::= %int 
+factor ::= %string 
+factor ::= %boolean 
+factor ::= null 
+factor ::= lvalue 
+factor ::= %lparan numexpression %rparan 
+
+lvalue ::= identifier _ lvalue2
+lvalue2 ::=''
+lvalue2 ::= bracketexp
+lvalue2 ::= funccall
+
+funccall ::= %lparan _ paramlistcall %rparan 
+
+bracketexp ::= %lbracket numexpression %rbracket bracketexp2
+bracketexp2 ::= ''
+bracketexp2 ::= bracketexp
+
+_ ::= %whitespace:* 
+
+NL ::= %NL:* 
+
+type_keyword ::= %type_keyword 
+
+identifier ::= %identifier 

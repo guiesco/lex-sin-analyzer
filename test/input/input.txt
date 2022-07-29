@@ -12,7 +12,7 @@ def main(int B, float C) {
 }
 
 def func1(int A) {
-    bool result = A[2] > 2;
+    bool result = A[1] > A[3];
     return result;
 }
 

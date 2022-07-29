@@ -28,11 +28,11 @@ program
 
 funclist -> funcdef funclist:? {% normalizeData %}
 
-funcdef -> %def _ identifier _ %lparan _ paramlist:? _ %rparan NL _ %lbrace NL _ statelist NL _ %rbrace NL _
+funcdef -> %def _ identifier _ %lparan _ paramlist:? %rparan NL _ %lbrace NL _ statelist NL _ %rbrace NL _
     {% normalizeData %}
 
 paramlist 
-    -> type_keyword _ identifier ( _ %comma _ paramlist):?
+    -> type_keyword _ identifier _ ( %comma _ paramlist):?
         {% data => {
             return normalizeData(normalizeData(data))
         }
@@ -69,7 +69,7 @@ vardecl
         {% normalizeData %}
 
 atribstat 
-    -> lvalue (%equals _ (expression | funccall)):?
+    -> lvalue (%equals _ (expression)):?
         {% data => {
             if(Array.isArray(data[1])){
                 data[1][2] = data[1][2][0]
@@ -79,9 +79,8 @@ atribstat
         %}
 
 
-funccall -> lvalue _ %lparan _ paramlistcall _ %rparan {% normalizeData %}
 
-paramlistcall -> (lvalue _ %comma _ paramlistcall _ | lvalue):? {% data => normalizeData(data[0]) %}
+paramlistcall -> lvalue:? _ (%comma _ paramlistcall _):? {% data => normalizeData(data[0]) %}
 
 printstat -> "print" _ expression {% normalizeData %}
 
@@ -94,21 +93,20 @@ ifstat -> "if" _ %lparan _ expression _ %rparan _ statement (_ "else" _ statelis
 forstat -> "for" _ %lparan _ vardecl _ %semicolon _ expression _ %semicolon _ atribstat _ %rparan _ statement {% normalizeData %}
 
 expression 
-    -> numexpression (_ %compare_keyword _ numexpression):?
+    -> numexpression (%compare_keyword _ numexpression):?
         {% data => {
             return normalizeData(normalizeData(data))
         } %}
 
 numexpression 
-    -> term (_ (%plus | %minus | %bool_compare) _ numexpression):*
+    -> term ((%plus | %minus | %bool_compare) _ numexpression):?
         {% data => {
             return normalizeData(normalizeData(data))
         } %}    
 
-term -> unaryexpr (_ ( %times | %divide | %percentage) _ unaryexpr):* 
+term -> unaryexpr _ (( %times | %divide | %percentage) _ term):?
     {% data => {
-        data[1] = normalizeData(normalizeData(normalizeData(data[1])))
-        return normalizeData(data)
+        return normalizeData(normalizeData(data))
     } %}
 
 unaryexpr -> ((%plus | %minus) _ ):?  factor {% normalizeData %}
@@ -122,11 +120,14 @@ factor
     | lvalue {% normalizeData %}
     | %lparan numexpression %rparan {% normalizeData %}
 
-lvalue -> identifier _ ( %lbracket numexpression %rbracket _):* 
+lvalue -> identifier _ (bracketexpr | funccall):?
     {% data => {
-        data[2] = normalizeData(data[2][0])
-        return normalizeData(data)
+        return normalizeData(normalizeData(data))
     } %}
+
+funccall -> %lparan _ paramlistcall _ %rparan {% normalizeData %}
+
+bracketexpr -> %lbracket numexpression %rbracket _ bracketexpr:? {% normalizeData %}
 
 _ -> %whitespace:* {% data => data[0][0] ? 'WS' : '' %}
 
