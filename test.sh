@@ -1,3 +1,3 @@
 #!/bin/bash
-
-node parse.js
+npm run build:final
+npm run test
