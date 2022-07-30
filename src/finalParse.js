@@ -4,7 +4,7 @@ const grammar = require("./finalGrammar.js");
 const fs = require("mz/fs");
 
 async function main() {
-    const input = (await fs.readFile("./test/input/input.txt")).toString();
+    const input = (await fs.readFile("./test/input/input.lcc")).toString();
     let parser = new nearley.Parser(
         nearley.Grammar.fromCompiled(grammar))
     try {
