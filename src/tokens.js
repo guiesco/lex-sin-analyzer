@@ -3,7 +3,7 @@ const moo = require("moo")
 
 const mooLex = moo.compile({
     def: "def",
-    keyword: ['if', 'else', 'return', 'read', 'print', 'for', 'new', 'def', 'break'],
+    keyword: ['if', 'else', 'return', 'read', 'print', 'for', 'new', 'break'],
     type_keyword: ['int', 'bool', 'float', 'string'],
     boolean: ['true', 'false'],
     identifier: /[a-zA-Z_][a-zA-Z0-9_]*/,
