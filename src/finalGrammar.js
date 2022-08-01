@@ -3,6 +3,11 @@
 (function () {
 function id(x) { return x[0]; }
 
+// autores
+// Bruno Alexandre da Costa
+// Gabriel V. V. Pacher
+// Guilherme Escobar Lopes
+// Heithor Marques
 const tokens = require('./tokens.js')
 const symbolTable = {}
 

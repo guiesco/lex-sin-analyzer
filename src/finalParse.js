@@ -1,3 +1,8 @@
+// autores
+// Bruno Alexandre da Costa
+// Gabriel V. V. Pacher
+// Guilherme Escobar Lopes
+// Heithor Marques
 
 const nearley = require("nearley");
 const grammar = require("./finalGrammar.js");
